@@ -8,6 +8,7 @@
 
 import UIKit
 import AVFoundation
+import MediaPlayer
 
 class ViewController: UIViewController {
 
@@ -37,6 +38,15 @@ class ViewController: UIViewController {
         } catch let error as NSError {
             print(error.localizedDescription)
         }
+        
+        UIApplication.shared.beginReceivingRemoteControlEvents()
+        
+        let commandCenter = MPRemoteCommandCenter.shared()
+        commandCenter.playCommand.isEnabled = true
+        commandCenter.pauseCommand.isEnabled = true
+        commandCenter.playCommand.addTarget(self, action: #selector(ViewController.playRadio))
+        commandCenter.pauseCommand.addTarget(self, action: #selector(ViewController.pauseRadio))
+
     }
 
     override func didReceiveMemoryWarning() {
