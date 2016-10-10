@@ -59,7 +59,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" image="digitalIcon"/>
                                 <connections>
-                                    <action selector="digitalButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="xKS-P4-4Zr"/>
+                                    <action selector="digitalIconPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="LeV-SA-pfl"/>
                                 </connections>
                             </button>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="WMUC" translatesAutoresizingMaskIntoConstraints="NO" id="Orv-ol-fQ3">

@@ -24,6 +24,7 @@
 		14076DE11DA2E05F002C00B8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		14076DE31DA2E05F002C00B8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		14076DE91DA2E0EF002C00B8 /* RadioPlayer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RadioPlayer.swift; sourceTree = "<group>"; };
+		146BFCF81DAC1BFC008D4686 /* RadioTest.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = RadioTest.entitlements; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -42,6 +43,7 @@
 			children = (
 				14076DD61DA2E05F002C00B8 /* RadioTest */,
 				14076DD51DA2E05F002C00B8 /* Products */,
+				146BFCF51DAC1BFC008D4686 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -56,6 +58,7 @@
 		14076DD61DA2E05F002C00B8 /* RadioTest */ = {
 			isa = PBXGroup;
 			children = (
+				146BFCF81DAC1BFC008D4686 /* RadioTest.entitlements */,
 				14076DD71DA2E05F002C00B8 /* AppDelegate.swift */,
 				14076DD91DA2E05F002C00B8 /* ViewController.swift */,
 				14076DDB1DA2E05F002C00B8 /* Main.storyboard */,
@@ -65,6 +68,13 @@
 				14076DE91DA2E0EF002C00B8 /* RadioPlayer.swift */,
 			);
 			path = RadioTest;
+			sourceTree = "<group>";
+		};
+		146BFCF51DAC1BFC008D4686 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -104,6 +114,9 @@
 						SystemCapabilities = {
 							com.apple.BackgroundModes = {
 								enabled = 1;
+							};
+							com.apple.WAC = {
+								enabled = 0;
 							};
 						};
 					};

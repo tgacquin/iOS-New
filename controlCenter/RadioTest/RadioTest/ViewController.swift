@@ -11,12 +11,15 @@ import AVFoundation
 import MediaPlayer
 
 class ViewController: UIViewController {
-
+    
     @IBOutlet weak var playButton: UIButton!
     @IBOutlet weak var fm: UIButton!
     @IBOutlet weak var digital: UIButton!
     @IBOutlet weak var fmIcon: UIButton!
     @IBOutlet weak var digitalButton: UIButton!
+    
+    var fmImage : UIImage = UIImage(named: "AlbumArtFM")!
+    var digitalImage : UIImage = UIImage(named: "AlbumArtDigital")!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -44,20 +47,25 @@ class ViewController: UIViewController {
         let commandCenter = MPRemoteCommandCenter.shared()
         commandCenter.playCommand.isEnabled = true
         commandCenter.pauseCommand.isEnabled = true
+        commandCenter.previousTrackCommand.isEnabled = true
+        commandCenter.nextTrackCommand.isEnabled = true
         commandCenter.playCommand.addTarget(self, action: #selector(ViewController.playRadio))
         commandCenter.pauseCommand.addTarget(self, action: #selector(ViewController.pauseRadio))
-
+        commandCenter.nextTrackCommand.addTarget(self, action: #selector(ViewController.nextChannel))
+        commandCenter.previousTrackCommand.addTarget(self, action: #selector(ViewController.nextChannel))
+  
+        MPNowPlayingInfoCenter.default().nowPlayingInfo = [MPMediaItemPropertyTitle : RadioPlayer.sharedInstance.getChannel(), MPMediaItemPropertyArtist : "WMUC", MPMediaItemPropertyArtwork : MPMediaItemArtwork(image: fmImage)]
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-
+    
     @IBAction func buttonPressed(_ sender: UIButton) {
         toggle()
     }
-
+    
     func toggle() {
         if RadioPlayer.sharedInstance.currentlyPlaying() {
             pauseRadio()
@@ -65,6 +73,8 @@ class ViewController: UIViewController {
         else {
             playRadio()
         }
+        
+        updateMediaProperty(channel: RadioPlayer.sharedInstance.getChannel())
     }
     
     func playRadio() {
@@ -86,6 +96,8 @@ class ViewController: UIViewController {
         
         fm.setTitle("Selected", for: .normal)
         digital.setTitle("Digital", for: .normal)
+        
+        updateMediaProperty(channel: RadioPlayer.sharedInstance.getChannel())
     }
     
     @IBAction func fmIconPressed(_ sender: UIButton) {
@@ -97,6 +109,8 @@ class ViewController: UIViewController {
         
         fm.setTitle("Selected", for: .normal)
         digital.setTitle("Digital", for: .normal)
+        
+        updateMediaProperty(channel: RadioPlayer.sharedInstance.getChannel())
     }
     
     @IBAction func digitalPressed(_ sender: UIButton) {
@@ -108,9 +122,11 @@ class ViewController: UIViewController {
         
         digital.setTitle("Selected", for: .normal)
         fm.setTitle("FM", for: .normal)
+        
+        updateMediaProperty(channel: RadioPlayer.sharedInstance.getChannel())
     }
     
-    @IBAction func digitalButtonPressed(_ sender: UIButton) {
+    @IBAction func digitalIconPressed(_ sender: UIButton) {
         RadioPlayer.sharedInstance.changePlaying(channel: "Digital")
         
         if RadioPlayer.sharedInstance.currentlyPlaying() {
@@ -119,6 +135,39 @@ class ViewController: UIViewController {
         
         digital.setTitle("Selected", for: .normal)
         fm.setTitle("FM", for: .normal)
+        
+        updateMediaProperty(channel: RadioPlayer.sharedInstance.getChannel())
+    }
+    
+    func nextChannel() {
+        if RadioPlayer.sharedInstance.getChannel() == "FM" {
+            RadioPlayer.sharedInstance.changePlaying(channel: "Digital")
+            
+            if RadioPlayer.sharedInstance.currentlyPlaying() {
+                playRadio()
+            }
+            
+            digital.setTitle("Selected", for: .normal)
+            fm.setTitle("FM", for: .normal)
+            
+        }
+        else {
+            RadioPlayer.sharedInstance.changePlaying(channel: "FM")
+            
+            if RadioPlayer.sharedInstance.currentlyPlaying() {
+                playRadio()
+            }
+            
+            fm.setTitle("Selected", for: .normal)
+            digital.setTitle("Digital", for: .normal)
+        }
+        
+        updateMediaProperty(channel: RadioPlayer.sharedInstance.getChannel())
+    }
+    
+    func updateMediaProperty(channel : String) {
+        let artwork = (channel == "FM") ? MPMediaItemArtwork(image: fmImage) : MPMediaItemArtwork(image: digitalImage)
+        MPNowPlayingInfoCenter.default().nowPlayingInfo = [MPMediaItemPropertyTitle : channel, MPMediaItemPropertyArtist : "WMUC", MPMediaItemPropertyArtwork :artwork]
     }
 }
 
