@@ -27,7 +27,14 @@ class ViewController: UIViewController {
         self.view.backgroundColor = UIColor.black
         
         fm.setTitle("Selected", for: .normal)
+        UIView.animate(withDuration: 0.5) {
+            self.fmIcon.layer.frame.origin.x += 1 * self.view.frame.size.width / 5
+            self.fm.layer.frame.origin.x += 1 * self.view.frame.size.width / 5
+            self.digitalButton.layer.frame.origin.x += 1 * self.view.frame.size.width / 5
+            self.digital.layer.frame.origin.x += 1 * self.view.frame.size.width / 5
+        }
         playRadio()
+        
         
         do {
             try AVAudioSession.sharedInstance().setCategory(AVAudioSessionCategoryPlayback)
@@ -90,6 +97,7 @@ class ViewController: UIViewController {
     }
     
     @IBAction func fmPressed(_ sender: UIButton) {
+        toggleAnimation(channel: "FM")
         RadioPlayer.sharedInstance.changePlaying(channel: "FM")
         
         if RadioPlayer.sharedInstance.currentlyPlaying() {
@@ -103,6 +111,7 @@ class ViewController: UIViewController {
     }
     
     @IBAction func fmIconPressed(_ sender: UIButton) {
+        toggleAnimation(channel: "FM")
         RadioPlayer.sharedInstance.changePlaying(channel: "FM")
         
         if RadioPlayer.sharedInstance.currentlyPlaying() {
@@ -116,6 +125,7 @@ class ViewController: UIViewController {
     }
     
     @IBAction func digitalPressed(_ sender: UIButton) {
+        toggleAnimation(channel: "Digital")
         RadioPlayer.sharedInstance.changePlaying(channel: "Digital")
         
         if RadioPlayer.sharedInstance.currentlyPlaying() {
@@ -129,6 +139,7 @@ class ViewController: UIViewController {
     }
     
     @IBAction func digitalIconPressed(_ sender: UIButton) {
+        toggleAnimation(channel: "Digital")
         RadioPlayer.sharedInstance.changePlaying(channel: "Digital")
         
         if RadioPlayer.sharedInstance.currentlyPlaying() {
@@ -139,6 +150,30 @@ class ViewController: UIViewController {
         fm.setTitle("FM", for: .normal)
         
         updateMediaProperty(channel: RadioPlayer.sharedInstance.getChannel())
+    }
+
+    func toggleAnimation(channel : String){
+        if channel == "Digital" {
+            if RadioPlayer.sharedInstance.getChannel() == "FM" {
+                //perform animation
+                UIView.animate(withDuration: 0.5) {
+                    self.fmIcon.layer.frame.origin.x -= 2 * self.view.frame.size.width / 5
+                    self.fm.layer.frame.origin.x -= 2 * self.view.frame.size.width / 5
+                    self.digitalButton.layer.frame.origin.x -= 2 * self.view.frame.size.width / 5
+                    self.digital.layer.frame.origin.x -= 2 * self.view.frame.size.width / 5
+                }
+            }
+        } else if channel == "FM" {
+            if RadioPlayer.sharedInstance.getChannel() == "Digital" {
+                //perform animation
+                UIView.animate(withDuration: 0.5) {
+                    self.fmIcon.layer.frame.origin.x += 2 * self.view.frame.size.width / 5
+                    self.fm.layer.frame.origin.x += 2 * self.view.frame.size.width / 5
+                    self.digitalButton.layer.frame.origin.x += 2 * self.view.frame.size.width / 5
+                    self.digital.layer.frame.origin.x += 2 * self.view.frame.size.width / 5
+                }
+            }
+        }
     }
     
     func nextChannel() {
