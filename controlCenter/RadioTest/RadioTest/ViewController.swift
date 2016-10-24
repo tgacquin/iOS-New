@@ -44,6 +44,8 @@ class ViewController: UIViewController {
         
         UIApplication.shared.beginReceivingRemoteControlEvents()
         
+        NotificationCenter.default.addObserver(self, selector: #selector(ViewController.handleInterruption(notification:)), name: NSNotification.Name.AVAudioSessionInterruption, object: nil)
+        
         let commandCenter = MPRemoteCommandCenter.shared()
         commandCenter.playCommand.isEnabled = true
         commandCenter.pauseCommand.isEnabled = true
@@ -168,6 +170,44 @@ class ViewController: UIViewController {
     func updateMediaProperty(channel : String) {
         let artwork = (channel == "FM") ? MPMediaItemArtwork(image: fmImage) : MPMediaItemArtwork(image: digitalImage)
         MPNowPlayingInfoCenter.default().nowPlayingInfo = [MPMediaItemPropertyTitle : channel, MPMediaItemPropertyArtist : "WMUC", MPMediaItemPropertyArtwork :artwork]
+    }
+    
+    func handleInterruption(notification: NSNotification) {
+        
+        //guard let interruptionType = notification.userInfo?[AVAudioSessionInterruptionTypeKey] as? AVAudioSessionInterruptionType else { print("wrong type"); return }
+        
+        if notification.name != NSNotification.Name.AVAudioSessionInterruption
+            || notification.userInfo == nil{
+            return
+        }
+        
+        var info = notification.userInfo!
+        var intValue: UInt = 0
+        (info[AVAudioSessionInterruptionTypeKey] as! NSValue).getValue(&intValue)
+        if let interruptionType = AVAudioSessionInterruptionType(rawValue: intValue) {
+            
+            switch interruptionType {
+                
+            case .began:
+                print("began")
+                // player is paused and session is inactive. need to update UI)
+                pauseRadio()
+                print("audio paused")
+                
+            default:
+                print("ended")
+                /** /
+                 if let option = notification.userInfo?[AVAudioSessionInterruptionOptionKey] as? AVAudioSessionInterruptionOptions where option == .ShouldResume {
+                 // ok to resume playing, re activate session and resume playing
+                 // need to update UI
+                 player.play()
+                 print("audio resumed")
+                 }
+                 / **/
+                playRadio()
+                print("audio resumed")
+            }
+        }
     }
 }
 
