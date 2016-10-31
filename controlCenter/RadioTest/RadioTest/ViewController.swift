@@ -26,7 +26,7 @@ class ViewController: UIViewController {
         // Do any additional setup after loading the view, typically from a nib.
         self.view.backgroundColor = UIColor.black
         
-        fm.setTitle("Selected", for: .normal)
+        //fm.setTitle("Selected", for: .normal)
         UIView.animate(withDuration: 0.5) {
             self.fmIcon.layer.frame.origin.x += 1 * self.view.frame.size.width / 5
             self.fm.layer.frame.origin.x += 1 * self.view.frame.size.width / 5
@@ -104,8 +104,8 @@ class ViewController: UIViewController {
             playRadio()
         }
         
-        fm.setTitle("Selected", for: .normal)
-        digital.setTitle("Digital", for: .normal)
+        //fm.setTitle("Selected", for: .normal)
+        //digital.setTitle("Digital", for: .normal)
         
         updateMediaProperty(channel: RadioPlayer.sharedInstance.getChannel())
     }
@@ -118,8 +118,8 @@ class ViewController: UIViewController {
             playRadio()
         }
         
-        fm.setTitle("Selected", for: .normal)
-        digital.setTitle("Digital", for: .normal)
+        //fm.setTitle("Selected", for: .normal)
+        //digital.setTitle("Digital", for: .normal)
         
         updateMediaProperty(channel: RadioPlayer.sharedInstance.getChannel())
     }
@@ -132,8 +132,8 @@ class ViewController: UIViewController {
             playRadio()
         }
         
-        digital.setTitle("Selected", for: .normal)
-        fm.setTitle("FM", for: .normal)
+        //digital.setTitle("Selected", for: .normal)
+        //fm.setTitle("FM", for: .normal)
         
         updateMediaProperty(channel: RadioPlayer.sharedInstance.getChannel())
     }
@@ -146,8 +146,8 @@ class ViewController: UIViewController {
             playRadio()
         }
         
-        digital.setTitle("Selected", for: .normal)
-        fm.setTitle("FM", for: .normal)
+        //digital.setTitle("Selected", for: .normal)
+        //fm.setTitle("FM", for: .normal)
         
         updateMediaProperty(channel: RadioPlayer.sharedInstance.getChannel())
     }
@@ -184,8 +184,8 @@ class ViewController: UIViewController {
                 playRadio()
             }
             
-            digital.setTitle("Selected", for: .normal)
-            fm.setTitle("FM", for: .normal)
+            //digital.setTitle("Selected", for: .normal)
+            //fm.setTitle("FM", for: .normal)
             
         }
         else {
@@ -195,8 +195,8 @@ class ViewController: UIViewController {
                 playRadio()
             }
             
-            fm.setTitle("Selected", for: .normal)
-            digital.setTitle("Digital", for: .normal)
+            //fm.setTitle("Selected", for: .normal)
+            //digital.setTitle("Digital", for: .normal)
         }
         
         updateMediaProperty(channel: RadioPlayer.sharedInstance.getChannel())
