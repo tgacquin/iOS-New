@@ -10,13 +10,17 @@ import Foundation
 import AVFoundation
 
 class RadioPlayer {
+    
+    // Single instance of this class
     static let sharedInstance = RadioPlayer()
-    private var digital = AVPlayer(url: NSURL(string: "http://wmuc.umd.edu/wmuc2-high.m3u")! as URL)
-    private var fm = AVPlayer(url: NSURL(string: "http://wmuc.umd.edu/wmuc-high.m3u")! as URL)
+    
+    // Set up streams
+    var digital = AVPlayer(url: NSURL(string: "http://wmuc.umd.edu/wmuc2-high.m3u")! as URL)
+    var fm = AVPlayer(url: NSURL(string: "http://wmuc.umd.edu/wmuc-high.m3u")! as URL)
+    
     private var currentChannel = "FM"
     private var isPlaying = false
     
-
     func play() {
         if currentChannel == "FM" {
             digital.pause()
@@ -35,17 +39,7 @@ class RadioPlayer {
         fm.pause()
         isPlaying = false
     }
-    
-    func toggle() {
-        if isPlaying {
-            pause()
-        }
-        
-        else {
-            play()
-        }
-    }
-    
+
     func currentlyPlaying() -> Bool {
         return isPlaying
     }
@@ -64,9 +58,10 @@ class RadioPlayer {
         }
     }
     
-    func refresh(){
-        digital = AVPlayer(url: URL(string: "http://wmuc.umd.edu/wmuc2-high.m3u")!)
-        fm = AVPlayer(url: URL(string: "http://wmuc.umd.edu/wmuc-high.m3u")!)
+    func refresh() {
+        digital = AVPlayer(url: NSURL(string: "http://wmuc.umd.edu/wmuc2-high.m3u")! as URL)
+        fm = AVPlayer(url: NSURL(string: "http://wmuc.umd.edu/wmuc-high.m3u")! as URL)
+
     }
-    
+
 }
