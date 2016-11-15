@@ -9,6 +9,7 @@
 import UIKit
 import AVFoundation
 import MediaPlayer
+import AVKit
 
 class ViewController: UIViewController {
     
@@ -28,9 +29,13 @@ class ViewController: UIViewController {
     let smallSizeIcon : CGFloat = 80
     let bigSizeIcon : CGFloat = 200
     
+    var backgroundTask: UIBackgroundTaskIdentifier = UIBackgroundTaskInvalid
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        
+        //MARK: UI Setup
         self.view.backgroundColor = UIColor.black
         
         UIView.animate(withDuration: 0.0) {
@@ -61,10 +66,16 @@ class ViewController: UIViewController {
             print(error.localizedDescription)
         }
         
+        //MARK: Observers
         UIApplication.shared.beginReceivingRemoteControlEvents()
         
         NotificationCenter.default.addObserver(self, selector: #selector(ViewController.handleInterruption(notification:)), name: NSNotification.Name.AVAudioSessionInterruption, object: nil)
         
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(audioRouteChangeListener), name: NSNotification.Name.AVAudioSessionRouteChange,
+            object: nil)
+     
+        // Control Center Functionality
         let commandCenter = MPRemoteCommandCenter.shared()
         commandCenter.playCommand.isEnabled = true
         commandCenter.pauseCommand.isEnabled = true
@@ -77,6 +88,7 @@ class ViewController: UIViewController {
         
         MPNowPlayingInfoCenter.default().nowPlayingInfo = [MPMediaItemPropertyTitle : RadioPlayer.sharedInstance.getChannel(), MPMediaItemPropertyArtist : "WMUC", MPMediaItemPropertyArtwork : MPMediaItemArtwork(image: fmImage)]
         
+        // Swipe Gesture Recognition
         let swipeRight = UISwipeGestureRecognizer(target: self, action: #selector(self.onSwipe(_:)))
         swipeRight.direction = UISwipeGestureRecognizerDirection.right
         self.view.addGestureRecognizer(swipeRight)
@@ -91,12 +103,8 @@ class ViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-    
+    //MARK: Play Pause Button Functionality
     @IBAction func buttonPressed(_ sender: UIButton) {
-        toggle()
-    }
-    
-    func toggle() {
         if RadioPlayer.sharedInstance.currentlyPlaying() {
             pauseRadio()
         }
@@ -105,18 +113,27 @@ class ViewController: UIViewController {
         }
         
         updateMediaProperty(channel: RadioPlayer.sharedInstance.getChannel())
+        
     }
     
     func playRadio() {
+        if !RadioPlayer.sharedInstance.currentlyPlaying() {
+            RadioPlayer.sharedInstance.refresh()
+        }
+        
         RadioPlayer.sharedInstance.play()
         playButton.setImage(#imageLiteral(resourceName: "Pause"), for: .normal)
+        
     }
     
     func pauseRadio() {
         RadioPlayer.sharedInstance.pause()
+        RadioPlayer.sharedInstance.refresh()
         playButton.setImage(#imageLiteral(resourceName: "Play"), for: .normal)
+    
     }
     
+    //MARK: FM Functionality
     @IBAction func fmPressed(_ sender: UIButton) {
         toggleAnimation(channel: "FM")
         RadioPlayer.sharedInstance.changePlaying(channel: "FM")
@@ -124,9 +141,6 @@ class ViewController: UIViewController {
         if RadioPlayer.sharedInstance.currentlyPlaying() {
             playRadio()
         }
-        
-        //fm.setTitle("Selected", for: .normal)
-        //digital.setTitle("Digital", for: .normal)
         
         updateMediaProperty(channel: RadioPlayer.sharedInstance.getChannel())
     }
@@ -139,12 +153,10 @@ class ViewController: UIViewController {
             playRadio()
         }
         
-        //fm.setTitle("Selected", for: .normal)
-        //digital.setTitle("Digital", for: .normal)
-        
         updateMediaProperty(channel: RadioPlayer.sharedInstance.getChannel())
     }
     
+    //MARK: Digital Functionality
     @IBAction func digitalPressed(_ sender: UIButton) {
         toggleAnimation(channel: "Digital")
         RadioPlayer.sharedInstance.changePlaying(channel: "Digital")
@@ -152,9 +164,6 @@ class ViewController: UIViewController {
         if RadioPlayer.sharedInstance.currentlyPlaying() {
             playRadio()
         }
-        
-        //digital.setTitle("Selected", for: .normal)
-        //fm.setTitle("FM", for: .normal)
         
         updateMediaProperty(channel: RadioPlayer.sharedInstance.getChannel())
     }
@@ -166,9 +175,6 @@ class ViewController: UIViewController {
         if RadioPlayer.sharedInstance.currentlyPlaying() {
             playRadio()
         }
-        
-        //digital.setTitle("Selected", for: .normal)
-        //fm.setTitle("FM", for: .normal)
         
         updateMediaProperty(channel: RadioPlayer.sharedInstance.getChannel())
     }
@@ -209,42 +215,25 @@ class ViewController: UIViewController {
     
     func nextChannel() {
         if RadioPlayer.sharedInstance.getChannel() == "FM" {
-            RadioPlayer.sharedInstance.changePlaying(channel: "Digital")
-            
-            if RadioPlayer.sharedInstance.currentlyPlaying() {
-                playRadio()
-            }
-            
-            //digital.setTitle("Selected", for: .normal)
-            //fm.setTitle("FM", for: .normal)
+            digitalIconPressed(nil)
             
         }
         else {
-            RadioPlayer.sharedInstance.changePlaying(channel: "FM")
-            
-            if RadioPlayer.sharedInstance.currentlyPlaying() {
-                playRadio()
-            }
-            
-            //fm.setTitle("Selected", for: .normal)
-            //digital.setTitle("Digital", for: .normal)
+            fmIconPressed(nil)
         }
         
-        updateMediaProperty(channel: RadioPlayer.sharedInstance.getChannel())
     }
     
     func updateMediaProperty(channel : String) {
         let artwork = (channel == "FM") ? MPMediaItemArtwork(image: fmImage) : MPMediaItemArtwork(image: digitalImage)
+        
         MPNowPlayingInfoCenter.default().nowPlayingInfo = [MPMediaItemPropertyTitle : channel, MPMediaItemPropertyArtist : "WMUC", MPMediaItemPropertyArtwork :artwork]
     }
     
     
     func handleInterruption(notification: NSNotification) {
-        
-        //guard let interruptionType = notification.userInfo?[AVAudioSessionInterruptionTypeKey] as? AVAudioSessionInterruptionType else { print("wrong type"); return }
-        
-        if notification.name != NSNotification.Name.AVAudioSessionInterruption
-            || notification.userInfo == nil{
+
+        if notification.name != NSNotification.Name.AVAudioSessionInterruption || notification.userInfo == nil{
             return
         }
         
@@ -257,39 +246,44 @@ class ViewController: UIViewController {
                 
             case .began:
                 print("began")
-                // player is paused and session is inactive. need to update UI)
                 pauseRadio()
                 print("audio paused")
                 
-            default:
+            case .ended:
                 print("ended")
-                /** /
-                 if let option = notification.userInfo?[AVAudioSessionInterruptionOptionKey] as? AVAudioSessionInterruptionOptions where option == .ShouldResume {
-                 // ok to resume playing, re activate session and resume playing
-                 // need to update UI
-                 player.play()
-                 print("audio resumed")
-                 }
-                 / **/
                 playRadio()
                 print("audio resumed")
             }
+            
         }
+        
     }
     
     @IBAction func onSwipe(_ gesture: UISwipeGestureRecognizer) {
         let swipeGesture = gesture
-        switch swipeGesture.direction {
-        case UISwipeGestureRecognizerDirection.right:
-            fmIconPressed(nil)
-        case UISwipeGestureRecognizerDirection.left:
-            digitalIconPressed(nil)
-        default:
-            break
-        }
         
+        switch swipeGesture.direction {
+            case UISwipeGestureRecognizerDirection.right:
+                fmIconPressed(nil)
+            case UISwipeGestureRecognizerDirection.left:
+                digitalIconPressed(nil)
+            default:
+                break
+        }
         
     }
     
+    dynamic private func audioRouteChangeListener(notification:NSNotification) {
+        let audioRouteChangeReason = notification.userInfo![AVAudioSessionRouteChangeReasonKey] as! UInt
+        
+        switch audioRouteChangeReason {
+        case AVAudioSessionRouteChangeReason.newDeviceAvailable.rawValue:
+            print("headphone plugged in")
+        case AVAudioSessionRouteChangeReason.oldDeviceUnavailable.rawValue:
+            pauseRadio()
+        default:
+            break
+        }
+    }
 }
 
