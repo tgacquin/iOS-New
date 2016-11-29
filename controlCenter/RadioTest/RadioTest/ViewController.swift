@@ -13,6 +13,8 @@ import AVKit
 
 class ViewController: UIViewController {
     
+    var flag = false
+    
     //MARK: UIButtons
     @IBOutlet weak var playButton: UIButton!
     @IBOutlet weak var fm: UIButton!
@@ -38,19 +40,19 @@ class ViewController: UIViewController {
         //MARK: UI Setup
         self.view.backgroundColor = UIColor.black
         
-
-        UIView.animate(withDuration: 0.0) {
-            self.fmIcon.frame = CGRect(x: (self.view.frame.midX) - 100, y: self.screenSize.midY - 150, width: self.bigSizeIcon, height: self.bigSizeIcon)
-            
-            self.digitalButton.frame = CGRect(x: self.screenSize.width - self.digital.frame.width, y: self.screenSize.midY - (self.smallSizeIcon), width: self.smallSizeIcon, height: self.smallSizeIcon)
-            
-            self.digital.frame.origin.x = self.digitalButton.layer.frame.origin.x
-            self.digital.frame.origin.y = self.digitalButton.frame.origin.y + 88
-            
-            self.fm.frame.origin.x = (self.view.frame.midX) - (self.fm.frame.size.width / 2)
-            self.fm.frame.origin.y = self.fmIcon.layer.frame.origin.y + self.fmIcon.layer.frame.width + 10
-        }
-        playRadio()
+        
+//        UIView.animate(withDuration: 0.0) {
+//            self.fmIcon.frame = CGRect(x: (self.view.frame.midX) - 100, y: self.screenSize.midY - 150, width: self.bigSizeIcon, height: self.bigSizeIcon)
+//            
+//            self.digitalButton.frame = CGRect(x: self.screenSize.width - self.digital.frame.width, y: self.screenSize.midY - (self.smallSizeIcon), width: self.smallSizeIcon, height: self.smallSizeIcon)
+//            
+//            self.digital.frame.origin.x = self.digitalButton.layer.frame.origin.x
+//            self.digital.frame.origin.y = self.digitalButton.frame.origin.y + 88
+//            
+//            self.fm.frame.origin.x = (self.view.frame.midX) - (self.fm.frame.size.width / 2)
+//            self.fm.frame.origin.y = self.fmIcon.layer.frame.origin.y + self.fmIcon.layer.frame.width + 10
+//        }
+//        playRadio()
         
         
         do {
@@ -73,8 +75,8 @@ class ViewController: UIViewController {
         
         
         NotificationCenter.default.addObserver(self, selector: #selector(audioRouteChangeListener), name: NSNotification.Name.AVAudioSessionRouteChange,
-            object: nil)
-     
+                                               object: nil)
+        
         // Control Center Functionality
         let commandCenter = MPRemoteCommandCenter.shared()
         commandCenter.playCommand.isEnabled = true
@@ -105,11 +107,13 @@ class ViewController: UIViewController {
     
     //MARK: Play Pause Button Functionality
     @IBAction func buttonPressed(_ sender: UIButton) {
-        if RadioPlayer.sharedInstance.currentlyPlaying() {
-            pauseRadio()
-        }
-        else {
-            playRadio()
+        if flag {
+            if RadioPlayer.sharedInstance.currentlyPlaying() {
+                pauseRadio()
+            }
+            else {
+                playRadio()
+            }
         }
         
         updateMediaProperty(channel: RadioPlayer.sharedInstance.getChannel())
@@ -130,7 +134,7 @@ class ViewController: UIViewController {
         RadioPlayer.sharedInstance.pause()
         RadioPlayer.sharedInstance.refresh()
         playButton.setImage(#imageLiteral(resourceName: "Play"), for: .normal)
-    
+        
     }
     
     //MARK: FM Functionality
@@ -142,6 +146,7 @@ class ViewController: UIViewController {
             playRadio()
         }
         
+        flag = true
         updateMediaProperty(channel: RadioPlayer.sharedInstance.getChannel())
     }
     
@@ -152,6 +157,8 @@ class ViewController: UIViewController {
         if RadioPlayer.sharedInstance.currentlyPlaying() {
             playRadio()
         }
+        
+        flag = true
         updateMediaProperty(channel: RadioPlayer.sharedInstance.getChannel())
     }
     
@@ -164,6 +171,7 @@ class ViewController: UIViewController {
             playRadio()
         }
         
+        flag = true
         updateMediaProperty(channel: RadioPlayer.sharedInstance.getChannel())
     }
     
@@ -174,6 +182,8 @@ class ViewController: UIViewController {
         if RadioPlayer.sharedInstance.currentlyPlaying() {
             playRadio()
         }
+        
+        flag = true
         updateMediaProperty(channel: RadioPlayer.sharedInstance.getChannel())
     }
     
@@ -230,7 +240,7 @@ class ViewController: UIViewController {
     
     
     func handleInterruption(notification: NSNotification) {
-
+        
         if notification.name != NSNotification.Name.AVAudioSessionInterruption || notification.userInfo == nil{
             return
         }
@@ -261,12 +271,12 @@ class ViewController: UIViewController {
         let swipeGesture = gesture
         
         switch swipeGesture.direction {
-            case UISwipeGestureRecognizerDirection.right:
-                fmIconPressed(nil)
-            case UISwipeGestureRecognizerDirection.left:
-                digitalIconPressed(nil)
-            default:
-                break
+        case UISwipeGestureRecognizerDirection.right:
+            fmIconPressed(nil)
+        case UISwipeGestureRecognizerDirection.left:
+            digitalIconPressed(nil)
+        default:
+            break
         }
         
     }

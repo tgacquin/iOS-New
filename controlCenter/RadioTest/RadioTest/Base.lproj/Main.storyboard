@@ -1,8 +1,11 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11201" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11542" systemVersion="16B2555" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11524"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -19,30 +22,32 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenHighlighted="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7ds-sB-De8">
-                                <frame key="frameInset" minX="16" minY="185" width="80" height="80"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <button opaque="NO" contentMode="scaleToFill" horizontalCompressionResistancePriority="749" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenHighlighted="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7ds-sB-De8">
+                                <rect key="frame" x="16" y="185" width="80" height="80"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="80" id="Yr6-yW-sFI"/>
+                                    <constraint firstAttribute="height" constant="80" id="h75-Pl-hlz"/>
+                                </constraints>
                                 <state key="normal" image="fmIcon"/>
                                 <connections>
                                     <action selector="fmIconPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="8Dd-Ob-znr"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenHighlighted="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YEc-ZX-OoF">
-                                <frame key="frameInset" minX="279" minY="185" width="80" height="80"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenHighlighted="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YEc-ZX-OoF">
+                                <rect key="frame" x="279" y="185" width="80" height="80"/>
                                 <state key="normal" image="digitalIcon"/>
                                 <connections>
                                     <action selector="digitalIconPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="LeV-SA-pfl"/>
                                 </connections>
                             </button>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="WMUC" translatesAutoresizingMaskIntoConstraints="NO" id="Orv-ol-fQ3">
+                                <rect key="frame" x="87" y="55" width="200" height="63"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="63" id="Jsu-OU-EFR"/>
                                 </constraints>
                             </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" adjustsImageWhenHighlighted="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ajN-s8-PCs">
-                                <frame key="frameInset" minX="16" minY="275" width="80" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" adjustsImageWhenHighlighted="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ajN-s8-PCs">
+                                <rect key="frame" x="16" y="275" width="80" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <state key="normal" title="88.1">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -53,7 +58,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" adjustsImageWhenHighlighted="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6eg-O5-gcZ">
-                                <frame key="frameInset" minX="279" minY="273" width="80" height="30"/>
+                                <rect key="frame" x="279" y="273" width="80" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <state key="normal" title="Digital">
@@ -64,6 +69,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenHighlighted="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="23s-eo-Klc">
+                                <rect key="frame" x="135" y="491" width="105" height="105"/>
                                 <constraints>
                                     <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="105" id="KlG-qD-doG"/>
                                     <constraint firstAttribute="width" secondItem="23s-eo-Klc" secondAttribute="height" multiplier="1:1" id="WCv-Yk-Alr"/>
@@ -79,12 +85,22 @@
                         <gestureRecognizers/>
                         <constraints>
                             <constraint firstItem="23s-eo-Klc" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="135" id="2CJ-bR-8mX"/>
+                            <constraint firstItem="YEc-ZX-OoF" firstAttribute="leading" secondItem="7ds-sB-De8" secondAttribute="trailing" constant="183" id="7ae-4K-6wq"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="23s-eo-Klc" secondAttribute="bottom" constant="71" id="Dbv-pl-KUh"/>
                             <constraint firstAttribute="trailing" secondItem="23s-eo-Klc" secondAttribute="trailing" constant="135" id="FHw-Fd-CtG"/>
                             <constraint firstItem="23s-eo-Klc" firstAttribute="top" relation="lessThanOrEqual" secondItem="Orv-ol-fQ3" secondAttribute="bottom" constant="386" id="Hc6-EP-d5H"/>
+                            <constraint firstItem="7ds-sB-De8" firstAttribute="trailing" secondItem="ajN-s8-PCs" secondAttribute="trailing" id="TBI-wb-bgC"/>
                             <constraint firstItem="Orv-ol-fQ3" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="35" id="Ual-z0-0Mf"/>
+                            <constraint firstItem="7ds-sB-De8" firstAttribute="top" secondItem="YEc-ZX-OoF" secondAttribute="top" id="Zho-5V-0hX"/>
+                            <constraint firstItem="7ds-sB-De8" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="16" id="aSZ-yE-Qy4"/>
+                            <constraint firstItem="ajN-s8-PCs" firstAttribute="top" secondItem="7ds-sB-De8" secondAttribute="bottom" constant="10" id="bVJ-YW-lVm"/>
                             <constraint firstAttribute="trailing" secondItem="Orv-ol-fQ3" secondAttribute="trailing" constant="88" id="cP7-19-YdN"/>
+                            <constraint firstItem="YEc-ZX-OoF" firstAttribute="leading" secondItem="7ds-sB-De8" secondAttribute="trailing" constant="183" id="d6B-DX-tHX"/>
                             <constraint firstItem="Orv-ol-fQ3" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="87" id="e8h-wL-Kw8"/>
+                            <constraint firstAttribute="trailing" secondItem="YEc-ZX-OoF" secondAttribute="trailing" constant="16" id="gC2-ux-WkH"/>
+                            <constraint firstItem="7ds-sB-De8" firstAttribute="leading" secondItem="ajN-s8-PCs" secondAttribute="leading" id="rKw-Cg-T1p"/>
+                            <constraint firstItem="7ds-sB-De8" firstAttribute="top" secondItem="Orv-ol-fQ3" secondAttribute="bottom" constant="67" id="w9W-LE-imp"/>
+                            <constraint firstItem="7ds-sB-De8" firstAttribute="bottom" secondItem="YEc-ZX-OoF" secondAttribute="bottom" id="xKm-2U-SQD"/>
                         </constraints>
                         <connections>
                             <outletCollection property="gestureRecognizers" destination="IzF-0D-7Nh" appends="YES" id="I1u-Xp-B3W"/>
