@@ -15,6 +15,12 @@ class ViewController: UIViewController {
     
     var flag = false
     
+    //Mark: Constraints
+    @IBOutlet weak var FMIconHeight: NSLayoutConstraint!
+    @IBOutlet weak var FMIconWidth: NSLayoutConstraint!
+    @IBOutlet weak var FMIconLeading: NSLayoutConstraint!
+    
+    
     //MARK: UIButtons
     @IBOutlet weak var playButton: UIButton!
     @IBOutlet weak var fm: UIButton!
@@ -41,18 +47,8 @@ class ViewController: UIViewController {
         self.view.backgroundColor = UIColor.black
         
         
-//        UIView.animate(withDuration: 0.0) {
-//            self.fmIcon.frame = CGRect(x: (self.view.frame.midX) - 100, y: self.screenSize.midY - 150, width: self.bigSizeIcon, height: self.bigSizeIcon)
-//            
-//            self.digitalButton.frame = CGRect(x: self.screenSize.width - self.digital.frame.width, y: self.screenSize.midY - (self.smallSizeIcon), width: self.smallSizeIcon, height: self.smallSizeIcon)
-//            
-//            self.digital.frame.origin.x = self.digitalButton.layer.frame.origin.x
-//            self.digital.frame.origin.y = self.digitalButton.frame.origin.y + 88
-//            
-//            self.fm.frame.origin.x = (self.view.frame.midX) - (self.fm.frame.size.width / 2)
-//            self.fm.frame.origin.y = self.fmIcon.layer.frame.origin.y + self.fmIcon.layer.frame.width + 10
-//        }
-//        playRadio()
+        
+        //playRadio()
         
         
         do {
@@ -98,6 +94,30 @@ class ViewController: UIViewController {
         let swipeLeft = UISwipeGestureRecognizer(target: self, action: #selector(self.onSwipe(_:)))
         swipeLeft.direction = UISwipeGestureRecognizerDirection.left
         self.view.addGestureRecognizer(swipeLeft)
+    }
+    
+    override func viewDidLayoutSubviews() {
+        
+        //self.FMIconHeight.constant = 160
+        
+        //self.FMIconWidth.constant = 160
+        
+        //self.FMIconLeading.constant = 100
+        
+        UIView.animate(withDuration: 0.5) {
+            
+            self.view.layoutIfNeeded()
+            
+            self.fmIcon.frame = CGRect(x: (self.view.frame.midX) - 100, y: self.screenSize.midY - 150, width: self.bigSizeIcon, height: self.bigSizeIcon)
+            
+            self.digitalButton.frame = CGRect(x: self.screenSize.width - self.digital.frame.width, y: self.screenSize.midY - (self.smallSizeIcon), width: self.smallSizeIcon, height: self.smallSizeIcon)
+            
+            self.digital.frame.origin.x = self.digitalButton.layer.frame.origin.x
+            self.digital.frame.origin.y = self.digitalButton.frame.origin.y + 88
+            
+            self.fm.frame.origin.x = (self.view.frame.midX) - (self.fm.frame.size.width / 2)
+            self.fm.frame.origin.y = self.fmIcon.layer.frame.origin.y + self.fmIcon.layer.frame.width + 10
+        }
     }
     
     override func didReceiveMemoryWarning() {
