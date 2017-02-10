@@ -67,6 +67,7 @@ class ViewController: UIViewController {
         
         NotificationCenter.default.addObserver(self, selector: #selector(ViewController.handleInterruption(notification:)), name: NSNotification.Name.AVAudioSessionInterruption, object: nil)
         
+        //NotificationCenter.default.addObserver(self, selector: #selector(AVPlayerStatusListener), name: NSNotification.Name.AV, object: nil)
         
         NotificationCenter.default.addObserver(self, selector: #selector(audioRouteChangeListener), name: NSNotification.Name.AVAudioSessionRouteChange,
                                                object: nil)
@@ -166,7 +167,6 @@ class ViewController: UIViewController {
         
         toggleAnimation(channel: "FM")
         RadioPlayer.sharedInstance.changePlaying(channel: "FM")
-        
     
     
         updateMediaProperty(channel: RadioPlayer.sharedInstance.getChannel())
@@ -247,6 +247,7 @@ class ViewController: UIViewController {
                 print("audio paused")
                 
             case .ended:
+            
                 print("ended")
                 playRadio()
                 print("audio resumed")
@@ -282,5 +283,12 @@ class ViewController: UIViewController {
             break
         }
     }
+    
+//    dynamic private func AVPlayerStatusListener(notification:NSNotification) {
+//        let audioRouteChangeReason = notification.userInfo![AVAudioSessionRouteChangeReasonKey] as! UInt
+//        
+//        
+//        
+//    }
 }
 

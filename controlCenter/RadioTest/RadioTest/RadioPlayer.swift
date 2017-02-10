@@ -50,11 +50,16 @@ class RadioPlayer {
     
     func changePlaying(channel : String) {
         if(channel == "FM") {
+            
             currentChannel = "FM"
+            
         }
         
         else {
             currentChannel = "Digital"
+        }
+        if(isPlaying==true){
+            play()
         }
     }
     
