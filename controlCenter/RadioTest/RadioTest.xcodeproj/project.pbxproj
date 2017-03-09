@@ -13,6 +13,7 @@
 		14076DDF1DA2E05F002C00B8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 14076DDE1DA2E05F002C00B8 /* Assets.xcassets */; };
 		14076DE21DA2E05F002C00B8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 14076DE01DA2E05F002C00B8 /* LaunchScreen.storyboard */; };
 		14076DEA1DA2E0EF002C00B8 /* RadioPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14076DE91DA2E0EF002C00B8 /* RadioPlayer.swift */; };
+		B5311AC31E70EF8100751071 /* ScheduleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5311AC21E70EF8100751071 /* ScheduleView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -25,6 +26,7 @@
 		14076DE31DA2E05F002C00B8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		14076DE91DA2E0EF002C00B8 /* RadioPlayer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RadioPlayer.swift; sourceTree = "<group>"; };
 		146BFCF81DAC1BFC008D4686 /* RadioTest.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = RadioTest.entitlements; sourceTree = "<group>"; };
+		B5311AC21E70EF8100751071 /* ScheduleView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ScheduleView.swift; path = ../ScheduleView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -61,6 +63,7 @@
 				146BFCF81DAC1BFC008D4686 /* RadioTest.entitlements */,
 				14076DD71DA2E05F002C00B8 /* AppDelegate.swift */,
 				14076DD91DA2E05F002C00B8 /* ViewController.swift */,
+				B5311AC21E70EF8100751071 /* ScheduleView.swift */,
 				14076DDB1DA2E05F002C00B8 /* Main.storyboard */,
 				14076DDE1DA2E05F002C00B8 /* Assets.xcassets */,
 				14076DE01DA2E05F002C00B8 /* LaunchScreen.storyboard */,
@@ -109,8 +112,8 @@
 				TargetAttributes = {
 					14076DD31DA2E05F002C00B8 = {
 						CreatedOnToolsVersion = 8.0;
-						DevelopmentTeam = LS6AL52D78;
-						ProvisioningStyle = Automatic;
+						DevelopmentTeam = JVV8PXWK72;
+						ProvisioningStyle = Manual;
 						SystemCapabilities = {
 							com.apple.BackgroundModes = {
 								enabled = 1;
@@ -158,6 +161,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B5311AC31E70EF8100751071 /* ScheduleView.swift in Sources */,
 				14076DEA1DA2E0EF002C00B8 /* RadioPlayer.swift in Sources */,
 				14076DDA1DA2E05F002C00B8 /* ViewController.swift in Sources */,
 				14076DD81DA2E05F002C00B8 /* AppDelegate.swift in Sources */,
@@ -284,12 +288,15 @@
 		14076DE71DA2E05F002C00B8 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				DEVELOPMENT_TEAM = LS6AL52D78;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = JVV8PXWK72;
 				INFOPLIST_FILE = RadioTest/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.andresarbelaez.RadioTest;
+				PRODUCT_BUNDLE_IDENTIFIER = edu.umd.vpsa.wmuc;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "ee6edbfe-eb4e-4217-a673-b2804f50fa6f";
+				PROVISIONING_PROFILE_SPECIFIER = "UMD WMUC DEV";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
@@ -297,12 +304,15 @@
 		14076DE81DA2E05F002C00B8 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				DEVELOPMENT_TEAM = LS6AL52D78;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = JVV8PXWK72;
 				INFOPLIST_FILE = RadioTest/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.andresarbelaez.RadioTest;
+				PRODUCT_BUNDLE_IDENTIFIER = edu.umd.vpsa.wmuc;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "2c96b255-1ec1-4509-ba0f-f60dcd0f9d09";
+				PROVISIONING_PROFILE_SPECIFIER = "UMD WMUC DEV";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Release;

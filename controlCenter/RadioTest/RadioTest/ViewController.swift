@@ -42,7 +42,7 @@ class ViewController: UIViewController {
         // Do any additional setup after loading the view, typically from a nib.
         
         //MARK: UI Setup
-        self.view.backgroundColor = UIColor.black
+        self.view.backgroundColor = UIColor.white
         
         
         
@@ -283,6 +283,9 @@ class ViewController: UIViewController {
             break
         }
     }
+    
+    @IBAction func backToPlayer(segue: UIStoryboardSegue) {}
+    
     
 //    dynamic private func AVPlayerStatusListener(notification:NSNotification) {
 //        let audioRouteChangeReason = notification.userInfo![AVAudioSessionRouteChangeReasonKey] as! UInt
