@@ -13,6 +13,7 @@
 		14076DDF1DA2E05F002C00B8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 14076DDE1DA2E05F002C00B8 /* Assets.xcassets */; };
 		14076DE21DA2E05F002C00B8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 14076DE01DA2E05F002C00B8 /* LaunchScreen.storyboard */; };
 		14076DEA1DA2E0EF002C00B8 /* RadioPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14076DE91DA2E0EF002C00B8 /* RadioPlayer.swift */; };
+		1A7FADFCCAD491A3DBC7E6EC /* Pods_RadioTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6449C2A395881AB8F9EEC52F /* Pods_RadioTest.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +25,9 @@
 		14076DE11DA2E05F002C00B8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		14076DE31DA2E05F002C00B8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		14076DE91DA2E0EF002C00B8 /* RadioPlayer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RadioPlayer.swift; sourceTree = "<group>"; };
+		224E7528813F09853E545850 /* Pods-RadioTest.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RadioTest.debug.xcconfig"; path = "Pods/Target Support Files/Pods-RadioTest/Pods-RadioTest.debug.xcconfig"; sourceTree = "<group>"; };
+		23A854BC5063104C1F1E3ED0 /* Pods-RadioTest.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RadioTest.release.xcconfig"; path = "Pods/Target Support Files/Pods-RadioTest/Pods-RadioTest.release.xcconfig"; sourceTree = "<group>"; };
+		6449C2A395881AB8F9EEC52F /* Pods_RadioTest.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RadioTest.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -31,6 +35,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1A7FADFCCAD491A3DBC7E6EC /* Pods_RadioTest.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -42,6 +47,8 @@
 			children = (
 				14076DD61DA2E05F002C00B8 /* RadioTest */,
 				14076DD51DA2E05F002C00B8 /* Products */,
+				7ED67634F3017ECC326E9A97 /* Pods */,
+				231A45314940E8B30B90AAE3 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -67,6 +74,23 @@
 			path = RadioTest;
 			sourceTree = "<group>";
 		};
+		231A45314940E8B30B90AAE3 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				6449C2A395881AB8F9EEC52F /* Pods_RadioTest.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		7ED67634F3017ECC326E9A97 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				224E7528813F09853E545850 /* Pods-RadioTest.debug.xcconfig */,
+				23A854BC5063104C1F1E3ED0 /* Pods-RadioTest.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -74,9 +98,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 14076DE61DA2E05F002C00B8 /* Build configuration list for PBXNativeTarget "RadioTest" */;
 			buildPhases = (
+				F837A0A00C9BAE4E67AD501B /* [CP] Check Pods Manifest.lock */,
 				14076DD01DA2E05F002C00B8 /* Sources */,
 				14076DD11DA2E05F002C00B8 /* Frameworks */,
 				14076DD21DA2E05F002C00B8 /* Resources */,
+				5493B287ABABB50DF862192D /* [CP] Embed Pods Frameworks */,
+				960E283E216DE51104F77353 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -139,6 +166,54 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		5493B287ABABB50DF862192D /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-RadioTest/Pods-RadioTest-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		960E283E216DE51104F77353 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-RadioTest/Pods-RadioTest-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		F837A0A00C9BAE4E67AD501B /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		14076DD01DA2E05F002C00B8 /* Sources */ = {
@@ -270,6 +345,7 @@
 		};
 		14076DE71DA2E05F002C00B8 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 224E7528813F09853E545850 /* Pods-RadioTest.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = H9X6NAZWVY;
@@ -284,6 +360,7 @@
 		};
 		14076DE81DA2E05F002C00B8 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 23A854BC5063104C1F1E3ED0 /* Pods-RadioTest.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = H9X6NAZWVY;

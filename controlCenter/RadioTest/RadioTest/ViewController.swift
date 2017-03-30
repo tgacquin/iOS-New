@@ -271,6 +271,13 @@ class ViewController: UIViewController {
         
     }
     
+    @IBOutlet weak var ShowName: UILabel!
+    
+    @IBOutlet weak var DJNames: UILabel!
+    
+    
+    
+    
     dynamic private func audioRouteChangeListener(notification:NSNotification) {
         let audioRouteChangeReason = notification.userInfo![AVAudioSessionRouteChangeReasonKey] as! UInt
         
@@ -283,6 +290,8 @@ class ViewController: UIViewController {
             break
         }
     }
+    
+    
     
     @IBAction func backToPlayer(segue: UIStoryboardSegue) {}
     

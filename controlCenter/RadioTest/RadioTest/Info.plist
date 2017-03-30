@@ -24,6 +24,13 @@
 	<string>1.0</string>
 	<key>CFBundleVersion</key>
 	<string>1</string>
+	<key>UIAppFonts</key>
+	<array>
+		<string>Avenir-Heavy.ttf</string>
+		<string>Avenir-Light.ttf</string>
+		<string>Avenir-Medium.ttf</string>
+		<string>Avenir-Black.ttf</string>
+	</array>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
 	<key>NSAppTransportSecurity</key>
