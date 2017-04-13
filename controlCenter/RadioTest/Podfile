@@ -9,6 +9,6 @@ target 'RadioTest' do
 
   # Pods for RadioTest
 	pod 'Alamofire', '~> 4.4'
-	pod 'Kanna', '~> 1.1.0'
+	pod 'Kanna', '~> 2.1.0’
 
 end
