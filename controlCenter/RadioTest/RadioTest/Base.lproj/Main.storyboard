@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -34,7 +34,7 @@
                                 </connections>
                             </button>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="WMUC" translatesAutoresizingMaskIntoConstraints="NO" id="94t-nB-AC3">
-                                <rect key="frame" x="88" y="28" width="200" height="34.5"/>
+                                <rect key="frame" x="88" y="28" width="200" height="35"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="200" id="5XC-33-pow"/>
                                     <constraint firstAttribute="width" secondItem="94t-nB-AC3" secondAttribute="height" multiplier="52:9" id="Z2U-2v-aeH"/>
@@ -81,7 +81,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Show Name" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KQ2-b3-TaJ">
-                                <rect key="frame" x="129" y="91.5" width="117" height="21"/>
+                                <rect key="frame" x="129" y="92" width="117" height="21"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="21" id="3Mk-4O-hmd"/>
                                     <constraint firstAttribute="width" constant="117" id="k1d-vZ-PqR"/>
@@ -221,7 +221,6 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="SnO-SH-fmf" firstAttribute="leading" secondItem="kRR-qb-VQl" secondAttribute="leadingMargin" constant="20" id="3my-oa-eeJ"/>
                             <constraint firstItem="SnO-SH-fmf" firstAttribute="centerX" secondItem="kRR-qb-VQl" secondAttribute="centerX" id="6fj-TT-2Yk"/>
                             <constraint firstItem="xY7-vD-8DZ" firstAttribute="centerX" secondItem="kRR-qb-VQl" secondAttribute="centerX" id="DmE-A2-GsI"/>
                             <constraint firstItem="wOF-LX-y1r" firstAttribute="centerX" secondItem="kRR-qb-VQl" secondAttribute="centerX" id="HQB-D1-9OF"/>
@@ -230,7 +229,6 @@
                             <constraint firstItem="Me9-rN-UHW" firstAttribute="centerX" secondItem="kRR-qb-VQl" secondAttribute="centerX" id="O6Y-RV-p9X"/>
                             <constraint firstItem="SnO-SH-fmf" firstAttribute="leading" secondItem="kRR-qb-VQl" secondAttribute="leadingMargin" constant="20" id="Qcm-uK-5ie"/>
                             <constraint firstItem="xY7-vD-8DZ" firstAttribute="top" secondItem="SnO-SH-fmf" secondAttribute="bottom" constant="29" id="evg-Qo-Pbj"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="SnO-SH-fmf" secondAttribute="trailing" constant="20" id="lug-j7-4n1"/>
                             <constraint firstItem="SnO-SH-fmf" firstAttribute="top" secondItem="Me9-rN-UHW" secondAttribute="bottom" constant="1" id="qXE-eM-A2P"/>
                             <constraint firstItem="VMZ-7P-jyd" firstAttribute="top" secondItem="nfy-LX-sxR" secondAttribute="bottom" constant="8" id="reE-Ae-rSR"/>
                             <constraint firstItem="Me9-rN-UHW" firstAttribute="top" secondItem="wOF-LX-y1r" secondAttribute="bottom" constant="6" id="tcn-Dg-PkU"/>
