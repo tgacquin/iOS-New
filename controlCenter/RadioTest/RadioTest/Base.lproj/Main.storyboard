@@ -34,7 +34,7 @@
                                 </connections>
                             </button>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="WMUC" translatesAutoresizingMaskIntoConstraints="NO" id="94t-nB-AC3">
-                                <rect key="frame" x="88" y="28" width="200" height="35"/>
+                                <rect key="frame" x="88" y="28" width="200" height="34.5"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="200" id="5XC-33-pow"/>
                                     <constraint firstAttribute="width" secondItem="94t-nB-AC3" secondAttribute="height" multiplier="52:9" id="Z2U-2v-aeH"/>
@@ -81,7 +81,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Show Name" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KQ2-b3-TaJ">
-                                <rect key="frame" x="129" y="92" width="117" height="21"/>
+                                <rect key="frame" x="129" y="91.5" width="117" height="21"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="21" id="3Mk-4O-hmd"/>
                                     <constraint firstAttribute="width" constant="117" id="k1d-vZ-PqR"/>

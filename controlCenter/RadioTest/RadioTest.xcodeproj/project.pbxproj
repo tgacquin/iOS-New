@@ -13,10 +13,8 @@
 		14076DDF1DA2E05F002C00B8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 14076DDE1DA2E05F002C00B8 /* Assets.xcassets */; };
 		14076DE21DA2E05F002C00B8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 14076DE01DA2E05F002C00B8 /* LaunchScreen.storyboard */; };
 		14076DEA1DA2E0EF002C00B8 /* RadioPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14076DE91DA2E0EF002C00B8 /* RadioPlayer.swift */; };
-		A6C9D344303BA98B4F9078DF /* Pods_RadioTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F84D8BFFF2CFC4732E320585 /* Pods_RadioTest.framework */; };
 		B5311AC31E70EF8100751071 /* ScheduleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5311AC21E70EF8100751071 /* ScheduleView.swift */; };
 		B5B4FB751E8C93F10060CA09 /* Scraper.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5B4FB741E8C93F10060CA09 /* Scraper.swift */; };
-		B5C234C11E7A175F0069D9F4 /* Avenir-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B5C234C01E7A175F0069D9F4 /* Avenir-Light.ttf */; };
 		B5C234C61E7A178F0069D9F4 /* Avenir-Black.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B5C234C21E7A178F0069D9F4 /* Avenir-Black.ttf */; };
 		B5C234C71E7A178F0069D9F4 /* Avenir-Heavy.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B5C234C31E7A178F0069D9F4 /* Avenir-Heavy.ttf */; };
 		B5C234C81E7A178F0069D9F4 /* Avenir-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B5C234C41E7A178F0069D9F4 /* Avenir-Light.ttf */; };
@@ -37,14 +35,11 @@
 		B5311AC21E70EF8100751071 /* ScheduleView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ScheduleView.swift; path = ../ScheduleView.swift; sourceTree = "<group>"; };
 		B5B4FB741E8C93F10060CA09 /* Scraper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Scraper.swift; sourceTree = "<group>"; };
 		B5B4FB761E8C953C0060CA09 /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = "../../../../../../Developer/Xcode/DerivedData/RadioTest-froyuqunihwozlaucruuavalkebj/Build/Products/Release-iphonesimulator/Alamofire/Alamofire.framework"; sourceTree = "<group>"; };
-		B5B4FB771E8C953C0060CA09 /* Kanna.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Kanna.framework; path = "Pods/../build/Debug-iphoneos/Kanna/Kanna.framework"; sourceTree = "<group>"; };
-		B5C234C01E7A175F0069D9F4 /* Avenir-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Avenir-Light.ttf"; path = "../../../../../../../Downloads/Avenir-Light.ttf"; sourceTree = "<group>"; };
 		B5C234C21E7A178F0069D9F4 /* Avenir-Black.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Avenir-Black.ttf"; sourceTree = "<group>"; };
 		B5C234C31E7A178F0069D9F4 /* Avenir-Heavy.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Avenir-Heavy.ttf"; sourceTree = "<group>"; };
 		B5C234C41E7A178F0069D9F4 /* Avenir-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Avenir-Light.ttf"; sourceTree = "<group>"; };
 		B5C234C51E7A178F0069D9F4 /* Avenir-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Avenir-Medium.ttf"; sourceTree = "<group>"; };
 		E12F40232A4E080770BA1FAA /* Pods-RadioTest.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RadioTest.release.xcconfig"; path = "Pods/Target Support Files/Pods-RadioTest/Pods-RadioTest.release.xcconfig"; sourceTree = "<group>"; };
-		F84D8BFFF2CFC4732E320585 /* Pods_RadioTest.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RadioTest.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -52,7 +47,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A6C9D344303BA98B4F9078DF /* Pods_RadioTest.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -98,13 +92,10 @@
 			isa = PBXGroup;
 			children = (
 				B5B4FB761E8C953C0060CA09 /* Alamofire.framework */,
-				B5B4FB771E8C953C0060CA09 /* Kanna.framework */,
 				B5C234C21E7A178F0069D9F4 /* Avenir-Black.ttf */,
 				B5C234C31E7A178F0069D9F4 /* Avenir-Heavy.ttf */,
 				B5C234C41E7A178F0069D9F4 /* Avenir-Light.ttf */,
 				B5C234C51E7A178F0069D9F4 /* Avenir-Medium.ttf */,
-				B5C234C01E7A175F0069D9F4 /* Avenir-Light.ttf */,
-				F84D8BFFF2CFC4732E320585 /* Pods_RadioTest.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -194,7 +185,6 @@
 				14076DDF1DA2E05F002C00B8 /* Assets.xcassets in Resources */,
 				B5C234C81E7A178F0069D9F4 /* Avenir-Light.ttf in Resources */,
 				B5C234C61E7A178F0069D9F4 /* Avenir-Black.ttf in Resources */,
-				B5C234C11E7A175F0069D9F4 /* Avenir-Light.ttf in Resources */,
 				14076DDD1DA2E05F002C00B8 /* Main.storyboard in Resources */,
 				B5C234C71E7A178F0069D9F4 /* Avenir-Heavy.ttf in Resources */,
 			);
