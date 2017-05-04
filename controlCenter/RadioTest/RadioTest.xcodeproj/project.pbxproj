@@ -14,9 +14,11 @@
 		14076DE21DA2E05F002C00B8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 14076DE01DA2E05F002C00B8 /* LaunchScreen.storyboard */; };
 		14076DEA1DA2E0EF002C00B8 /* RadioPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14076DE91DA2E0EF002C00B8 /* RadioPlayer.swift */; };
 		A6C9D344303BA98B4F9078DF /* Pods_RadioTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F84D8BFFF2CFC4732E320585 /* Pods_RadioTest.framework */; };
+		B502C7C81EBAA880003699BB /* ScheduleTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B502C7C71EBAA880003699BB /* ScheduleTableViewController.swift */; };
+		B502C7CA1EBAB1D7003699BB /* show.swift in Sources */ = {isa = PBXBuildFile; fileRef = B502C7C91EBAB1D7003699BB /* show.swift */; };
+		B502C7CE1EBAC640003699BB /* ShowTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B502C7CD1EBAC640003699BB /* ShowTableViewCell.swift */; };
 		B5311AC31E70EF8100751071 /* ScheduleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5311AC21E70EF8100751071 /* ScheduleView.swift */; };
-		B5B4FB751E8C93F10060CA09 /* Scraper.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5B4FB741E8C93F10060CA09 /* Scraper.swift */; };
-		B5C234C11E7A175F0069D9F4 /* Avenir-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B5C234C01E7A175F0069D9F4 /* Avenir-Light.ttf */; };
+		B59B0FB51EBA9950006DB342 /* Scraper.swift in Sources */ = {isa = PBXBuildFile; fileRef = B59B0FB41EBA9950006DB342 /* Scraper.swift */; };
 		B5C234C61E7A178F0069D9F4 /* Avenir-Black.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B5C234C21E7A178F0069D9F4 /* Avenir-Black.ttf */; };
 		B5C234C71E7A178F0069D9F4 /* Avenir-Heavy.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B5C234C31E7A178F0069D9F4 /* Avenir-Heavy.ttf */; };
 		B5C234C81E7A178F0069D9F4 /* Avenir-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B5C234C41E7A178F0069D9F4 /* Avenir-Light.ttf */; };
@@ -34,11 +36,14 @@
 		14076DE91DA2E0EF002C00B8 /* RadioPlayer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RadioPlayer.swift; sourceTree = "<group>"; };
 		146BFCF81DAC1BFC008D4686 /* RadioTest.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = RadioTest.entitlements; sourceTree = "<group>"; };
 		6BB7F1B7E8C666637EF933F4 /* Pods-RadioTest.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RadioTest.debug.xcconfig"; path = "Pods/Target Support Files/Pods-RadioTest/Pods-RadioTest.debug.xcconfig"; sourceTree = "<group>"; };
+		B502C7C71EBAA880003699BB /* ScheduleTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScheduleTableViewController.swift; sourceTree = "<group>"; };
+		B502C7C91EBAB1D7003699BB /* show.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = show.swift; sourceTree = "<group>"; };
+		B502C7CD1EBAC640003699BB /* ShowTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShowTableViewCell.swift; sourceTree = "<group>"; };
 		B5311AC21E70EF8100751071 /* ScheduleView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ScheduleView.swift; path = ../ScheduleView.swift; sourceTree = "<group>"; };
-		B5B4FB741E8C93F10060CA09 /* Scraper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Scraper.swift; sourceTree = "<group>"; };
+		B59B0FB41EBA9950006DB342 /* Scraper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Scraper.swift; path = ../../../../../../../../.Trash/Scraper.swift; sourceTree = "<group>"; };
+		B59B0FB61EBA99B1006DB342 /* Avenir-Light 3.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Avenir-Light 3.ttf"; path = "../../../../../../../Desktop/Avenir-Light 3.ttf"; sourceTree = "<group>"; };
 		B5B4FB761E8C953C0060CA09 /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = "../../../../../../Developer/Xcode/DerivedData/RadioTest-froyuqunihwozlaucruuavalkebj/Build/Products/Release-iphonesimulator/Alamofire/Alamofire.framework"; sourceTree = "<group>"; };
 		B5B4FB771E8C953C0060CA09 /* Kanna.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Kanna.framework; path = "Pods/../build/Debug-iphoneos/Kanna/Kanna.framework"; sourceTree = "<group>"; };
-		B5C234C01E7A175F0069D9F4 /* Avenir-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Avenir-Light.ttf"; path = "../../../../../../../Downloads/Avenir-Light.ttf"; sourceTree = "<group>"; };
 		B5C234C21E7A178F0069D9F4 /* Avenir-Black.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Avenir-Black.ttf"; sourceTree = "<group>"; };
 		B5C234C31E7A178F0069D9F4 /* Avenir-Heavy.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Avenir-Heavy.ttf"; sourceTree = "<group>"; };
 		B5C234C41E7A178F0069D9F4 /* Avenir-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Avenir-Light.ttf"; sourceTree = "<group>"; };
@@ -84,8 +89,11 @@
 				14076DD71DA2E05F002C00B8 /* AppDelegate.swift */,
 				14076DD91DA2E05F002C00B8 /* ViewController.swift */,
 				B5311AC21E70EF8100751071 /* ScheduleView.swift */,
-				B5B4FB741E8C93F10060CA09 /* Scraper.swift */,
+				B59B0FB41EBA9950006DB342 /* Scraper.swift */,
 				14076DDB1DA2E05F002C00B8 /* Main.storyboard */,
+				B502C7CD1EBAC640003699BB /* ShowTableViewCell.swift */,
+				B502C7C71EBAA880003699BB /* ScheduleTableViewController.swift */,
+				B502C7C91EBAB1D7003699BB /* show.swift */,
 				14076DDE1DA2E05F002C00B8 /* Assets.xcassets */,
 				14076DE01DA2E05F002C00B8 /* LaunchScreen.storyboard */,
 				14076DE31DA2E05F002C00B8 /* Info.plist */,
@@ -103,7 +111,7 @@
 				B5C234C31E7A178F0069D9F4 /* Avenir-Heavy.ttf */,
 				B5C234C41E7A178F0069D9F4 /* Avenir-Light.ttf */,
 				B5C234C51E7A178F0069D9F4 /* Avenir-Medium.ttf */,
-				B5C234C01E7A175F0069D9F4 /* Avenir-Light.ttf */,
+				B59B0FB61EBA99B1006DB342 /* Avenir-Light 3.ttf */,
 				F84D8BFFF2CFC4732E320585 /* Pods_RadioTest.framework */,
 			);
 			name = Frameworks;
@@ -194,7 +202,6 @@
 				14076DDF1DA2E05F002C00B8 /* Assets.xcassets in Resources */,
 				B5C234C81E7A178F0069D9F4 /* Avenir-Light.ttf in Resources */,
 				B5C234C61E7A178F0069D9F4 /* Avenir-Black.ttf in Resources */,
-				B5C234C11E7A175F0069D9F4 /* Avenir-Light.ttf in Resources */,
 				14076DDD1DA2E05F002C00B8 /* Main.storyboard in Resources */,
 				B5C234C71E7A178F0069D9F4 /* Avenir-Heavy.ttf in Resources */,
 			);
@@ -257,8 +264,11 @@
 			files = (
 				B5311AC31E70EF8100751071 /* ScheduleView.swift in Sources */,
 				14076DEA1DA2E0EF002C00B8 /* RadioPlayer.swift in Sources */,
+				B59B0FB51EBA9950006DB342 /* Scraper.swift in Sources */,
+				B502C7C81EBAA880003699BB /* ScheduleTableViewController.swift in Sources */,
 				14076DDA1DA2E05F002C00B8 /* ViewController.swift in Sources */,
-				B5B4FB751E8C93F10060CA09 /* Scraper.swift in Sources */,
+				B502C7CA1EBAB1D7003699BB /* show.swift in Sources */,
+				B502C7CE1EBAC640003699BB /* ShowTableViewCell.swift in Sources */,
 				14076DD81DA2E05F002C00B8 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -384,6 +394,8 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 6BB7F1B7E8C666637EF933F4 /* Pods-RadioTest.debug.xcconfig */;
 			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = "AppIcon-2";
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEVELOPMENT_TEAM = JVV8PXWK72;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -405,6 +417,8 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = E12F40232A4E080770BA1FAA /* Pods-RadioTest.release.xcconfig */;
 			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = "AppIcon-2";
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEVELOPMENT_TEAM = JVV8PXWK72;
 				FRAMEWORK_SEARCH_PATHS = (
