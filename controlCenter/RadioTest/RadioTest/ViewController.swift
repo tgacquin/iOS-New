@@ -14,6 +14,10 @@ import AVKit
 class ViewController: UIViewController {
     
     var flag = false
+    var today = 0;
+    var hour = 0;
+    
+    
     
     //Mark: Constraints
     @IBOutlet weak var FMIconHeight: NSLayoutConstraint!
@@ -26,9 +30,17 @@ class ViewController: UIViewController {
     @IBOutlet weak var fmIcon: UIButton!
     @IBOutlet weak var digitalButton: UIButton!
     
+    
+    
     //MARK: UIImages
     var fmImage : UIImage = UIImage(named: "AlbumArtFM")!
     var digitalImage : UIImage = UIImage(named: "AlbumArtDigital")!
+    
+    
+    //Mark: Labels
+    @IBOutlet weak var ShowName: UILabel!
+    @IBOutlet weak var DJNames: UILabel!
+    
     
     //MARK: Size Properties
     let screenSize: CGRect = UIScreen.main.bounds
@@ -43,9 +55,9 @@ class ViewController: UIViewController {
         
         //MARK: UI Setup
         self.view.backgroundColor = UIColor.white
-        
-        
-        
+        self.ShowName.text = ""
+        self.DJNames.text = ""
+    
         //playRadio()
         
         
@@ -168,7 +180,18 @@ class ViewController: UIViewController {
         toggleAnimation(channel: "FM")
         RadioPlayer.sharedInstance.changePlaying(channel: "FM")
     
-    
+        hour = Int(Calendar.current.component(.hour, from: Date()))
+        today = Int(Calendar.current.component(.weekdayOrdinal, from: Date()))
+        let index = FmMatrix.day[1].filter{ $0.time == 10 }
+        if index.isEmpty{
+            self.ShowName.text = "Off the Air"
+            self.DJNames.text = "💤😴💤"
+            
+        }else {
+            self.ShowName.text=index[0].name
+            self.DJNames.text=index[0].dj
+        }
+        
         updateMediaProperty(channel: RadioPlayer.sharedInstance.getChannel())
     }
     
@@ -181,6 +204,18 @@ class ViewController: UIViewController {
         RadioPlayer.sharedInstance.changePlaying(channel: "Digital")
         
         updateMediaProperty(channel: RadioPlayer.sharedInstance.getChannel())
+        
+        hour = Int(Calendar.current.component(.hour, from: Date()))
+        today = Int(Calendar.current.component(.weekdayOrdinal, from: Date()))
+        let index = DigMatrix.day[today].filter{ $0.time == hour }
+        if index.isEmpty{
+            self.ShowName.text = "Off Air"
+            self.DJNames.text = "💤😴💤"
+            
+        }else {
+            self.ShowName.text=index[0].name
+            self.DJNames.text=index[0].dj
+        }
     }
     
     
@@ -271,10 +306,7 @@ class ViewController: UIViewController {
         
     }
     
-    @IBOutlet weak var ShowName: UILabel!
-    
-    @IBOutlet weak var DJNames: UILabel!
-    
+ 
     
     
     

@@ -19,16 +19,14 @@ class Show{
     //MARK: Initialization
     
     init(name: String, dj:String , time: Int) {
-        
-        self.name = name
-        self.dj = dj
-        self.time = time
-        
         if name.isEmpty {
             self.name = "Off Air"
             self.dj = ""
+            self.time = time
+        }else{
+            self.name = name
+            self.dj = dj
+            self.time = time
         }
     }
-    
-    
 }

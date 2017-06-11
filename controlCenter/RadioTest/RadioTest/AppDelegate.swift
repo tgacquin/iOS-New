@@ -41,6 +41,18 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
     }
     
+    func  applicationDidFinishLaunching(_ application: UIApplication) {
+        let show1=Show(name: "fmshow", dj: "fmdJ", time: 10)
+        let showd1=Show(name: "digShow", dj: "DigDJ", time: 10)
+        FmMatrix.day[1]+=[show1]
+        DigMatrix.day[1]+=[showd1]
+        
+        
+        
+    }
+    
+    
+    
     func applicationWillResignActive(_ application: UIApplication) {
         // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
         // Use this method to pause ongoing tasks, disable timers, and invalidate graphics rendering callbacks. Games should use this method to pause the game.

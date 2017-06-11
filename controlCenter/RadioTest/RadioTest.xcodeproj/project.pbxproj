@@ -18,7 +18,6 @@
 		B502C7CA1EBAB1D7003699BB /* show.swift in Sources */ = {isa = PBXBuildFile; fileRef = B502C7C91EBAB1D7003699BB /* show.swift */; };
 		B502C7CE1EBAC640003699BB /* ShowTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B502C7CD1EBAC640003699BB /* ShowTableViewCell.swift */; };
 		B5311AC31E70EF8100751071 /* ScheduleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5311AC21E70EF8100751071 /* ScheduleView.swift */; };
-		B59B0FB51EBA9950006DB342 /* Scraper.swift in Sources */ = {isa = PBXBuildFile; fileRef = B59B0FB41EBA9950006DB342 /* Scraper.swift */; };
 		B5C234C61E7A178F0069D9F4 /* Avenir-Black.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B5C234C21E7A178F0069D9F4 /* Avenir-Black.ttf */; };
 		B5C234C71E7A178F0069D9F4 /* Avenir-Heavy.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B5C234C31E7A178F0069D9F4 /* Avenir-Heavy.ttf */; };
 		B5C234C81E7A178F0069D9F4 /* Avenir-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B5C234C41E7A178F0069D9F4 /* Avenir-Light.ttf */; };
@@ -40,7 +39,6 @@
 		B502C7C91EBAB1D7003699BB /* show.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = show.swift; sourceTree = "<group>"; };
 		B502C7CD1EBAC640003699BB /* ShowTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShowTableViewCell.swift; sourceTree = "<group>"; };
 		B5311AC21E70EF8100751071 /* ScheduleView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ScheduleView.swift; path = ../ScheduleView.swift; sourceTree = "<group>"; };
-		B59B0FB41EBA9950006DB342 /* Scraper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Scraper.swift; path = ../../../../../../../../.Trash/Scraper.swift; sourceTree = "<group>"; };
 		B59B0FB61EBA99B1006DB342 /* Avenir-Light 3.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Avenir-Light 3.ttf"; path = "../../../../../../../Desktop/Avenir-Light 3.ttf"; sourceTree = "<group>"; };
 		B5B4FB761E8C953C0060CA09 /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = "../../../../../../Developer/Xcode/DerivedData/RadioTest-froyuqunihwozlaucruuavalkebj/Build/Products/Release-iphonesimulator/Alamofire/Alamofire.framework"; sourceTree = "<group>"; };
 		B5B4FB771E8C953C0060CA09 /* Kanna.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Kanna.framework; path = "Pods/../build/Debug-iphoneos/Kanna/Kanna.framework"; sourceTree = "<group>"; };
@@ -89,7 +87,6 @@
 				14076DD71DA2E05F002C00B8 /* AppDelegate.swift */,
 				14076DD91DA2E05F002C00B8 /* ViewController.swift */,
 				B5311AC21E70EF8100751071 /* ScheduleView.swift */,
-				B59B0FB41EBA9950006DB342 /* Scraper.swift */,
 				14076DDB1DA2E05F002C00B8 /* Main.storyboard */,
 				B502C7CD1EBAC640003699BB /* ShowTableViewCell.swift */,
 				B502C7C71EBAA880003699BB /* ScheduleTableViewController.swift */,
@@ -264,7 +261,6 @@
 			files = (
 				B5311AC31E70EF8100751071 /* ScheduleView.swift in Sources */,
 				14076DEA1DA2E0EF002C00B8 /* RadioPlayer.swift in Sources */,
-				B59B0FB51EBA9950006DB342 /* Scraper.swift in Sources */,
 				B502C7C81EBAA880003699BB /* ScheduleTableViewController.swift in Sources */,
 				14076DDA1DA2E05F002C00B8 /* ViewController.swift in Sources */,
 				B502C7CA1EBAB1D7003699BB /* show.swift in Sources */,

@@ -8,20 +8,41 @@
 
 import UIKit
 
-class ScheduleTableViewController: UITableViewController {
+var viewerSetting = "FM"
 
-    var shows = [Show]()
+struct showMatrix{
+    var day=[[Show](), [Show](), [Show](), [Show](), [Show](), [Show](), [Show]() ]
+}
+
+var FmMatrix=showMatrix()
+var DigMatrix=showMatrix()
+
+class ScheduleTableViewController: UITableViewController {
     
 
+    var shows = [Show]()
+    var day = 1;
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(ScheduleTableViewController.updateChannel), name: NSNotification.Name(rawValue: ChannelNotificationKey), object: nil)
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(ScheduleTableViewController.updateDay(_:)), name: NSNotification.Name(rawValue: DayNotificationKey), object: nil)
+        
         loadShows()
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
+        let hour = Int(Calendar.current.component(.hour, from: Date()))
+        let today = Int(Calendar.current.component(.weekdayOrdinal, from: Date()))
+        let index = FmMatrix.day[today].filter{ $0.time == hour }
+        if index.isEmpty {
+            
+        }else{
+            let indexPath = NSIndexPath(index: hour)
+        
+            tableView.scrollToRow(at: indexPath as IndexPath, at: .top, animated: false)
+            }
+        }
 
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem()
-    }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -104,26 +125,39 @@ class ScheduleTableViewController: UITableViewController {
     }
     */
     
+     func updateChannel(){
+        
+        loadShows()
+        
+    }
+    
+    
+    func updateDay(_ notification:NSNotification){
+        
+        if let dayVal = notification.userInfo?["dayVal"] as? Int {
+            
+            day=dayVal
+            
+            loadShows()
+            
+        }
+        
+    }
+    
     //MARK: Private Methods
     
     private func loadShows() {
         
-        let showname1="Show1"
-        let showname2="Show2"
-        let showname3="Show3"
-        let dj = "me bro"
-        let time1 = 9
-        let time2 = 10
-        let time3 = 11
+        shows = []
         
-        let show1 = Show(name: showname1, dj: dj, time: time1)
+        if viewerSetting == "FM" {
+            shows = FmMatrix.day[day]
+        }else{
+            shows = DigMatrix.day[day]
+        }
         
-        let show2 = Show(name: showname2, dj: dj, time: time2)
-            
-        let show3 = Show(name: showname3, dj: dj, time: time3)
-        
-        shows+=[show1,show2,show3]
-        
+        self.tableView.reloadData()
+
     }
 
 }
