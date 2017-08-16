@@ -8,7 +8,9 @@ target 'RadioTest' do
     use_frameworks!
 
   # Pods for RadioTest
-	pod 'Alamofire', '~> 4.4'
-	pod 'Kanna', '~> 2.1.0’
+	pod 'Alamofire'
+	pod 'Kanna'
+    pod "SwiftSoup"
+
 
 end
