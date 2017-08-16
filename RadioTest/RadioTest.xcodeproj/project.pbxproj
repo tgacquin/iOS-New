@@ -13,7 +13,16 @@
 		14076DDF1DA2E05F002C00B8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 14076DDE1DA2E05F002C00B8 /* Assets.xcassets */; };
 		14076DE21DA2E05F002C00B8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 14076DE01DA2E05F002C00B8 /* LaunchScreen.storyboard */; };
 		14076DEA1DA2E0EF002C00B8 /* RadioPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14076DE91DA2E0EF002C00B8 /* RadioPlayer.swift */; };
-		1A7FADFCCAD491A3DBC7E6EC /* Pods_RadioTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6449C2A395881AB8F9EEC52F /* Pods_RadioTest.framework */; };
+		A6C9D344303BA98B4F9078DF /* Pods_RadioTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F84D8BFFF2CFC4732E320585 /* Pods_RadioTest.framework */; };
+		B502C7C81EBAA880003699BB /* ScheduleTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B502C7C71EBAA880003699BB /* ScheduleTableViewController.swift */; };
+		B502C7CA1EBAB1D7003699BB /* Show.swift in Sources */ = {isa = PBXBuildFile; fileRef = B502C7C91EBAB1D7003699BB /* Show.swift */; };
+		B502C7CE1EBAC640003699BB /* ShowTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B502C7CD1EBAC640003699BB /* ShowTableViewCell.swift */; };
+		B54CF5611F22E922009DE627 /* WMUCCrawler.swift in Sources */ = {isa = PBXBuildFile; fileRef = B54CF5601F22E922009DE627 /* WMUCCrawler.swift */; };
+		B5C234C61E7A178F0069D9F4 /* Avenir-Black.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B5C234C21E7A178F0069D9F4 /* Avenir-Black.ttf */; };
+		B5C234C71E7A178F0069D9F4 /* Avenir-Heavy.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B5C234C31E7A178F0069D9F4 /* Avenir-Heavy.ttf */; };
+		B5C234C81E7A178F0069D9F4 /* Avenir-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B5C234C41E7A178F0069D9F4 /* Avenir-Light.ttf */; };
+		B5C234C91E7A178F0069D9F4 /* Avenir-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B5C234C51E7A178F0069D9F4 /* Avenir-Medium.ttf */; };
+		B5FAFB751F44A806002C8149 /* ScheduleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5FAFB741F44A806002C8149 /* ScheduleView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -25,9 +34,20 @@
 		14076DE11DA2E05F002C00B8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		14076DE31DA2E05F002C00B8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		14076DE91DA2E0EF002C00B8 /* RadioPlayer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RadioPlayer.swift; sourceTree = "<group>"; };
-		224E7528813F09853E545850 /* Pods-RadioTest.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RadioTest.debug.xcconfig"; path = "Pods/Target Support Files/Pods-RadioTest/Pods-RadioTest.debug.xcconfig"; sourceTree = "<group>"; };
-		23A854BC5063104C1F1E3ED0 /* Pods-RadioTest.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RadioTest.release.xcconfig"; path = "Pods/Target Support Files/Pods-RadioTest/Pods-RadioTest.release.xcconfig"; sourceTree = "<group>"; };
-		6449C2A395881AB8F9EEC52F /* Pods_RadioTest.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RadioTest.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		146BFCF81DAC1BFC008D4686 /* RadioTest.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = RadioTest.entitlements; sourceTree = "<group>"; };
+		6BB7F1B7E8C666637EF933F4 /* Pods-RadioTest.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RadioTest.debug.xcconfig"; path = "Pods/Target Support Files/Pods-RadioTest/Pods-RadioTest.debug.xcconfig"; sourceTree = "<group>"; };
+		B502C7C71EBAA880003699BB /* ScheduleTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScheduleTableViewController.swift; sourceTree = "<group>"; };
+		B502C7C91EBAB1D7003699BB /* Show.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Show.swift; sourceTree = "<group>"; };
+		B502C7CD1EBAC640003699BB /* ShowTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShowTableViewCell.swift; sourceTree = "<group>"; };
+		B54CF5601F22E922009DE627 /* WMUCCrawler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WMUCCrawler.swift; sourceTree = "<group>"; };
+		B59B0FB61EBA99B1006DB342 /* Avenir-Light 3.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Avenir-Light 3.ttf"; path = "../../../../../../../Desktop/Avenir-Light 3.ttf"; sourceTree = "<group>"; };
+		B5C234C21E7A178F0069D9F4 /* Avenir-Black.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Avenir-Black.ttf"; sourceTree = "<group>"; };
+		B5C234C31E7A178F0069D9F4 /* Avenir-Heavy.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Avenir-Heavy.ttf"; sourceTree = "<group>"; };
+		B5C234C41E7A178F0069D9F4 /* Avenir-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Avenir-Light.ttf"; sourceTree = "<group>"; };
+		B5C234C51E7A178F0069D9F4 /* Avenir-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Avenir-Medium.ttf"; sourceTree = "<group>"; };
+		B5FAFB741F44A806002C8149 /* ScheduleView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScheduleView.swift; sourceTree = "<group>"; };
+		E12F40232A4E080770BA1FAA /* Pods-RadioTest.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RadioTest.release.xcconfig"; path = "Pods/Target Support Files/Pods-RadioTest/Pods-RadioTest.release.xcconfig"; sourceTree = "<group>"; };
+		F84D8BFFF2CFC4732E320585 /* Pods_RadioTest.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RadioTest.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -35,7 +55,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1A7FADFCCAD491A3DBC7E6EC /* Pods_RadioTest.framework in Frameworks */,
+				A6C9D344303BA98B4F9078DF /* Pods_RadioTest.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -47,8 +67,8 @@
 			children = (
 				14076DD61DA2E05F002C00B8 /* RadioTest */,
 				14076DD51DA2E05F002C00B8 /* Products */,
-				7ED67634F3017ECC326E9A97 /* Pods */,
-				231A45314940E8B30B90AAE3 /* Frameworks */,
+				146BFCF51DAC1BFC008D4686 /* Frameworks */,
+				FE871186742D55670631E6AE /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -63,30 +83,41 @@
 		14076DD61DA2E05F002C00B8 /* RadioTest */ = {
 			isa = PBXGroup;
 			children = (
+				146BFCF81DAC1BFC008D4686 /* RadioTest.entitlements */,
 				14076DD71DA2E05F002C00B8 /* AppDelegate.swift */,
 				14076DD91DA2E05F002C00B8 /* ViewController.swift */,
 				14076DDB1DA2E05F002C00B8 /* Main.storyboard */,
+				B5FAFB741F44A806002C8149 /* ScheduleView.swift */,
+				B502C7CD1EBAC640003699BB /* ShowTableViewCell.swift */,
+				B502C7C71EBAA880003699BB /* ScheduleTableViewController.swift */,
+				B502C7C91EBAB1D7003699BB /* Show.swift */,
+				B54CF5601F22E922009DE627 /* WMUCCrawler.swift */,
+				14076DE91DA2E0EF002C00B8 /* RadioPlayer.swift */,
 				14076DDE1DA2E05F002C00B8 /* Assets.xcassets */,
 				14076DE01DA2E05F002C00B8 /* LaunchScreen.storyboard */,
 				14076DE31DA2E05F002C00B8 /* Info.plist */,
-				14076DE91DA2E0EF002C00B8 /* RadioPlayer.swift */,
 			);
 			path = RadioTest;
 			sourceTree = "<group>";
 		};
-		231A45314940E8B30B90AAE3 /* Frameworks */ = {
+		146BFCF51DAC1BFC008D4686 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				6449C2A395881AB8F9EEC52F /* Pods_RadioTest.framework */,
+				B5C234C21E7A178F0069D9F4 /* Avenir-Black.ttf */,
+				B5C234C31E7A178F0069D9F4 /* Avenir-Heavy.ttf */,
+				B5C234C41E7A178F0069D9F4 /* Avenir-Light.ttf */,
+				B5C234C51E7A178F0069D9F4 /* Avenir-Medium.ttf */,
+				B59B0FB61EBA99B1006DB342 /* Avenir-Light 3.ttf */,
+				F84D8BFFF2CFC4732E320585 /* Pods_RadioTest.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		7ED67634F3017ECC326E9A97 /* Pods */ = {
+		FE871186742D55670631E6AE /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				224E7528813F09853E545850 /* Pods-RadioTest.debug.xcconfig */,
-				23A854BC5063104C1F1E3ED0 /* Pods-RadioTest.release.xcconfig */,
+				6BB7F1B7E8C666637EF933F4 /* Pods-RadioTest.debug.xcconfig */,
+				E12F40232A4E080770BA1FAA /* Pods-RadioTest.release.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
@@ -98,12 +129,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 14076DE61DA2E05F002C00B8 /* Build configuration list for PBXNativeTarget "RadioTest" */;
 			buildPhases = (
-				F837A0A00C9BAE4E67AD501B /* [CP] Check Pods Manifest.lock */,
+				2462DC957DE7D8EB52CA2AB2 /* [CP] Check Pods Manifest.lock */,
 				14076DD01DA2E05F002C00B8 /* Sources */,
 				14076DD11DA2E05F002C00B8 /* Frameworks */,
 				14076DD21DA2E05F002C00B8 /* Resources */,
-				5493B287ABABB50DF862192D /* [CP] Embed Pods Frameworks */,
-				960E283E216DE51104F77353 /* [CP] Copy Pods Resources */,
+				882C02EA886125CF1EFF80FC /* [CP] Embed Pods Frameworks */,
+				F0D525E14F25E57F1FD40FBE /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -126,11 +157,14 @@
 				TargetAttributes = {
 					14076DD31DA2E05F002C00B8 = {
 						CreatedOnToolsVersion = 8.0;
-						DevelopmentTeam = H9X6NAZWVY;
-						ProvisioningStyle = Automatic;
+						DevelopmentTeam = JVV8PXWK72;
+						ProvisioningStyle = Manual;
 						SystemCapabilities = {
 							com.apple.BackgroundModes = {
 								enabled = 1;
+							};
+							com.apple.WAC = {
+								enabled = 0;
 							};
 						};
 					};
@@ -159,46 +193,20 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B5C234C91E7A178F0069D9F4 /* Avenir-Medium.ttf in Resources */,
 				14076DE21DA2E05F002C00B8 /* LaunchScreen.storyboard in Resources */,
 				14076DDF1DA2E05F002C00B8 /* Assets.xcassets in Resources */,
+				B5C234C81E7A178F0069D9F4 /* Avenir-Light.ttf in Resources */,
+				B5C234C61E7A178F0069D9F4 /* Avenir-Black.ttf in Resources */,
 				14076DDD1DA2E05F002C00B8 /* Main.storyboard in Resources */,
+				B5C234C71E7A178F0069D9F4 /* Avenir-Heavy.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		5493B287ABABB50DF862192D /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-RadioTest/Pods-RadioTest-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		960E283E216DE51104F77353 /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-RadioTest/Pods-RadioTest-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		F837A0A00C9BAE4E67AD501B /* [CP] Check Pods Manifest.lock */ = {
+		2462DC957DE7D8EB52CA2AB2 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -213,6 +221,36 @@
 			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
+		882C02EA886125CF1EFF80FC /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-RadioTest/Pods-RadioTest-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		F0D525E14F25E57F1FD40FBE /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-RadioTest/Pods-RadioTest-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -220,8 +258,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B54CF5611F22E922009DE627 /* WMUCCrawler.swift in Sources */,
 				14076DEA1DA2E0EF002C00B8 /* RadioPlayer.swift in Sources */,
+				B502C7C81EBAA880003699BB /* ScheduleTableViewController.swift in Sources */,
 				14076DDA1DA2E05F002C00B8 /* ViewController.swift in Sources */,
+				B5FAFB751F44A806002C8149 /* ScheduleView.swift in Sources */,
+				B502C7CA1EBAB1D7003699BB /* Show.swift in Sources */,
+				B502C7CE1EBAC640003699BB /* ShowTableViewCell.swift in Sources */,
 				14076DD81DA2E05F002C00B8 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -289,7 +332,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -334,7 +377,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
@@ -345,30 +388,40 @@
 		};
 		14076DE71DA2E05F002C00B8 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 224E7528813F09853E545850 /* Pods-RadioTest.debug.xcconfig */;
+			baseConfigurationReference = 6BB7F1B7E8C666637EF933F4 /* Pods-RadioTest.debug.xcconfig */;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = H9X6NAZWVY;
+				ASSETCATALOG_COMPILER_APPICON_NAME = "AppIcon-2";
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = JVV8PXWK72;
+				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = RadioTest/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.hwanglee.RadioTest;
+				PRODUCT_BUNDLE_IDENTIFIER = edu.umd.vpsa.wmuc;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "ee6edbfe-eb4e-4217-a673-b2804f50fa6f";
+				PROVISIONING_PROFILE_SPECIFIER = "UMD WMUC DEV";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
 		};
 		14076DE81DA2E05F002C00B8 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 23A854BC5063104C1F1E3ED0 /* Pods-RadioTest.release.xcconfig */;
+			baseConfigurationReference = E12F40232A4E080770BA1FAA /* Pods-RadioTest.release.xcconfig */;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = H9X6NAZWVY;
+				ASSETCATALOG_COMPILER_APPICON_NAME = "AppIcon-2";
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = JVV8PXWK72;
+				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = RadioTest/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.hwanglee.RadioTest;
+				PRODUCT_BUNDLE_IDENTIFIER = edu.umd.vpsa.wmuc;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "2c96b255-1ec1-4509-ba0f-f60dcd0f9d09";
+				PROVISIONING_PROFILE_SPECIFIER = "UMD WMUC DEV";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
