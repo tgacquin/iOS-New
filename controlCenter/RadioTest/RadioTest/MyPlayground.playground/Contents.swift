@@ -11,17 +11,17 @@ class Show{
     
     var name: String
     var dj: String
-    var time: Int
+    var time: String
     var len: Int
     //MARK: Initialization
     
     init(s: [String]) {
         name = s[0]
         dj = s[1]
-        time = 0
+        time = ""
         len = 1
     }
-    public func setTime(t: Int, length: Int) {
+    public func setTime(t: String, length: Int) {
         time = t
         len = length
     }
@@ -42,7 +42,7 @@ class Show{
 
 
 var digSched = [[Show]]();
-var fmSched = [Show]();
+var fmSched = [[Show]]();
 var shtuff: Elements;
 var row = 0;
 var col = 0;
@@ -53,6 +53,23 @@ var none = [String]();
 let offAir=Show(s: ["offAir","none"])
 var docDig: Document;
 var docFM: Document;
+var timetracker = "00:00 AM"
+var daytracker = 0;
+var day = [Show]()
+
+for i in 0...7 {
+    digSched.append(day)
+    fmSched.append(day)
+}
+
+//var sun = [Show]()
+//var mon = [Show]()
+//var tue = [Show]()
+//var wed = [Show]()
+//var thu = [Show]()
+//var fri = [Show]()
+//var sat = [Show]()
+
 
 //Initializes the current row of each col in the sched as they may get out of order.
 colTrack.updateValue(0, forKey: 0);
@@ -103,25 +120,30 @@ do{
     for n in shtuff {
         do {
             
+            try print(n.text())
             
             var a = try n.text().contains(":00")
             var b = try n.text().contains(":30")
             var c = try n.text().contains("Off The Air")
+            var d = try n.text().contains("***")
             
             if( a || b ){
-                
-                
+                daytracker = 0
+                timetracker = try n.text()
             } else if(c){
-                fmSched.append(offAir)
-            } else {
-                var NewShow = n.text().components(separatedBy:"\\*\\*\\*")
-                fmSched.append(Show(NewShow))
-                print("COOL")
+                fmSched[daytracker].append(offAir)
+            } else if d {
+                var NewShow = try n.text().components(separatedBy:"***")
+                fmSched[daytracker].append(Show(s: NewShow))
+                var length = try n.attr("rowspan")
+                var len = Int(length);
+                fmSched[daytracker].last?.setTime(t: timetracker, length: len!)
+                //print("COOL")
             }
             
             
             //try print(n.text())
-            
+            daytracker+=1
         } catch {
             print(error)
         }
@@ -138,5 +160,11 @@ do{
     print(error);
 }
 
-
+for iterator1 in fmSched{
+    for iterator2 in iterator1 {
+        print(iterator2.time)
+        print(iterator2.name)
+        print(iterator2.len)
+    }
+}
 
