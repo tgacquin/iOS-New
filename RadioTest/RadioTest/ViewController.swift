@@ -182,7 +182,7 @@ class ViewController: UIViewController {
     
         hour = Int(Calendar.current.component(.hour, from: Date()))
         today = Int(Calendar.current.component(.weekdayOrdinal, from: Date()))
-        let index = FmMatrix.day[1].filter{ $0.time == 10 }
+        let index = schedge.fmSched[1].filter{ $0.time.contains(String(hour) + ":") }
         if index.isEmpty{
             self.ShowName.text = "Off the Air"
             self.DJNames.text = "💤😴💤"
@@ -207,7 +207,7 @@ class ViewController: UIViewController {
         
         hour = Int(Calendar.current.component(.hour, from: Date()))
         today = Int(Calendar.current.component(.weekdayOrdinal, from: Date()))
-        let index = DigMatrix.day[today].filter{ $0.time == hour }
+        let index = schedge.digSched[today].filter{ $0.time.contains(String(hour) + ":") }
         if index.isEmpty{
             self.ShowName.text = "Off Air"
             self.DJNames.text = "💤😴💤"

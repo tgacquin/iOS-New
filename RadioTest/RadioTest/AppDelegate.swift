@@ -11,6 +11,9 @@
 import UIKit
 import AVFoundation
 
+let schedge = WMUCCrawler()
+
+
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
     
@@ -41,14 +44,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
     }
     
+    
     func  applicationDidFinishLaunching(_ application: UIApplication) {
-        let show1=Show(name: "fmshow", dj: "fmdJ", time: 10)
-        let showd1=Show(name: "digShow", dj: "DigDJ", time: 10)
-        FmMatrix.day[1]+=[show1]
-        DigMatrix.day[1]+=[showd1]
-        
-        
-        
+        schedge.fetchShows() //load and parse the schedule
     }
     
     

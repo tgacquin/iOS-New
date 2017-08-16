@@ -10,9 +10,6 @@ import UIKit
 
 var viewerSetting = "FM"
 
-let schedge = WMUCCrawler()
-var FmMatrix = schedge.fmSched
-var DigMatrix = schedge.digSched
 
 class ScheduleTableViewController: UITableViewController {
     
@@ -30,7 +27,7 @@ class ScheduleTableViewController: UITableViewController {
         loadShows()
         let hour = Int(Calendar.current.component(.hour, from: Date()))
         let today = Int(Calendar.current.component(.weekdayOrdinal, from: Date()))
-        let index = FmMatrix[today].filter{ $0.time == hour }
+        let index = schedge.fmSched[today].filter{ $0.time == (String(hour) + ":") }
         if index.isEmpty {
             
         }else{
@@ -148,9 +145,9 @@ class ScheduleTableViewController: UITableViewController {
         shows = []
         
         if viewerSetting == "FM" {
-            shows = FmMatrix.day[day]
+            shows = schedge.fmSched[day]
         }else{
-            shows = DigMatrix.day[day]
+            shows = schedge.digSched[day]
         }
         
         self.tableView.reloadData()

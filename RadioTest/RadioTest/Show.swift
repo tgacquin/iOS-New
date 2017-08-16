@@ -13,19 +13,30 @@ class Show{
     
     var name: String
     var dj: String
-    var time: Int
+    var time: String
     var len: Int
     //MARK: Initialization
     
     init(s: [String]) {
         name = s[0]
         dj = s[1]
-        time = 0
+        time = ""
         len = 1
     }
+
     public func setTime(t: String, length: Int) {
-        
-        time = t
+       // var semicolon = t.index(of: ":") ?? t.endIndex
+//        var hour = Int(t[..<semicolon])!
+//        if (t.contains("PM") && hour<12){
+//            hour+=12
+//        }
+//        var min = 0
+//        var mindex = t.index[after: semicolon]
+//        if (t[mindex] == 3){
+//            var min = 0.5
+//        }
+
+        time = t //hour+min
         len = length
     }
     
