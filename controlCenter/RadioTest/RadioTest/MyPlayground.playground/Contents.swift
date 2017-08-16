@@ -94,7 +94,7 @@ do {
 //        return
 //    }
     
-    try html = String(contentsOf: digUrl, encoding: .utf8)
+     html = try! String(contentsOf: digUrl, encoding: .utf8)
     
 //    print(html)
     
@@ -118,8 +118,17 @@ do{
     shtuff = try docDig.select("td");
     
     for n in shtuff {
-        do {
+        var x = try n.text().contains("Find us on Facebook Follow WMUC on Twitter!")
+        var y = try n.text().contains("Previous Schedules for Channel 1Spring 2006 (01/30/06")
+        var z = try n.text().contains("Get Involved")
+        var e = (try n.text().characters.count == 0)
+
+        
+        if(x || y || z || e ){
             
+        }else{
+        do {
+            print("|")
             try print(n.text())
             
             var a = try n.text().contains(":00")
@@ -132,21 +141,33 @@ do{
                 timetracker = try n.text()
             } else if(c){
                 fmSched[daytracker].append(offAir)
+                var length = try n.attr("rowspan")
+                var len = Int(length)!;
+                fmSched[daytracker].last?.setTime(t: timetracker, length: len)
+                colTrack.updateValue(len, forKey: daytracker)
             } else if d {
                 var NewShow = try n.text().components(separatedBy:"***")
                 fmSched[daytracker].append(Show(s: NewShow))
                 var length = try n.attr("rowspan")
-                var len = Int(length);
-                fmSched[daytracker].last?.setTime(t: timetracker, length: len!)
-                //print("COOL")
+                var len = Int(length)!;
+                fmSched[daytracker].last?.setTime(t: timetracker, length: len)
+                colTrack.updateValue(len, forKey: daytracker)
             }
             
             
             //try print(n.text())
-            daytracker+=1
+            while(colTrack[daytracker] != 0){
+                if(daytracker>6){
+                    break
+                }
+                var curVal = colTrack[daytracker]!
+                colTrack.updateValue((curVal-1), forKey: daytracker)
+                daytracker+=1
+            }
         } catch {
             print(error)
         }
+    }
     }
     
 //    for r in 0...23 {
@@ -161,10 +182,13 @@ do{
 }
 
 for iterator1 in fmSched{
+    print("______________________")
     for iterator2 in iterator1 {
         print(iterator2.time)
         print(iterator2.name)
         print(iterator2.len)
     }
 }
+
+
 
