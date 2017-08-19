@@ -13,29 +13,31 @@ import SwiftSoup
 class WMUCCrawler {
     
     
-    public var digSched = [[Show]]();
-    public var fmSched = [[Show]]();
+    public var digSched = [[Show]]()
+    public var fmSched = [[Show]]()
 
     
     init(){
-        var digSched = [[Show]]();
-        var fmSched = [[Show]]();
+        digSched = [[Show]]()
+        fmSched = [[Show]]()
     }
     
     public func fetchShows(){
     
-    var shtuffm: Elements;
-    var shtufdig: Elements;
+    digSched = [[Show]]()
+    fmSched = [[Show]]()
+    var shtuffm: Elements
+    var shtufdig: Elements
     var colTrackfm = [Int: Int]()
     var colTrackdig = [Int: Int]()
     let offAir=["offAir","none"]
-    var docDig: Document;
-    var docFM: Document;
+    var docDig: Document
+    var docFM: Document
     var timetracker = "00:00 AM"
     var daytracker = 0;
     let day = [Show]()
     
-    for i in 0...7 {
+    for _ in 0...6 {
     digSched.append(day)
     fmSched.append(day)
     }
@@ -74,16 +76,19 @@ class WMUCCrawler {
     throw NSError.init()
     }
     
-    htmldig = try! String(contentsOf: digUrl, encoding: .utf8) //get the HTML
-    htmlfm = try! String(contentsOf: fmUrl, encoding: .utf8) //get the HTML
-    
-    //    print(html)
-    
+    htmldig = try String(contentsOf: digUrl, encoding: .utf8) //get the HTML
+    htmlfm = try String(contentsOf: fmUrl, encoding: .utf8) //get the HTML
+        
     
     } catch {
+        
     print(error);
     }
     
+        
+    
+    
+        
     do {
     
     try docDig = SwiftSoup.parse(htmldig); // load up the old Parsed Document

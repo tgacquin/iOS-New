@@ -11,6 +11,8 @@ import AVFoundation
 import MediaPlayer
 import AVKit
 
+var FirstLaunch = true;
+
 class ViewController: UIViewController {
     
     var flag = false
@@ -52,6 +54,15 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        // setup Reachability
+        
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(self.reachabilityChanged),name: ReachabilityChangedNotification,object: reachability)
+        do{
+            try reachability.startNotifier()
+        }catch{
+            print("could not start reachability notifier")
+        }
         
         //MARK: UI Setup
         self.view.backgroundColor = UIColor.white
@@ -105,6 +116,32 @@ class ViewController: UIViewController {
         let swipeLeft = UISwipeGestureRecognizer(target: self, action: #selector(self.onSwipe(_:)))
         swipeLeft.direction = UISwipeGestureRecognizerDirection.left
         self.view.addGestureRecognizer(swipeLeft)
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        if (FirstLaunch){
+          if(reachability.isReachable == false){
+            
+          let alert = UIAlertController(title: "No Internet Connection", message: "You are not connected to the internet, so the app might not work as expected. Check your connectivity settings and come back 😊", preferredStyle: .alert)
+        
+          alert.addAction(UIAlertAction(title: "OK", style: .default) { _ in
+              print("OK")
+          })
+        
+          self.present(alert, animated: true)
+          }
+        }
+        
+        FirstLaunch = false
+    }
+        
+    override func viewWillAppear(_ animated: Bool) {
+        NotificationCenter.default.addObserver(self, selector: #selector(self.reachabilityChanged),name: ReachabilityChangedNotification,object: reachability)
+        do{
+            try reachability.startNotifier()
+        }catch{
+            print("could not start reachability notifier")
+        }
     }
     
     override func viewDidLayoutSubviews() {
@@ -176,20 +213,26 @@ class ViewController: UIViewController {
     
     @IBAction func fmIconPressed(_ sender: UIButton?) {
         flag = true
+        viewerSetting = "FM"
         
         toggleAnimation(channel: "FM")
         RadioPlayer.sharedInstance.changePlaying(channel: "FM")
-    
+        
         hour = Int(Calendar.current.component(.hour, from: Date()))
-        today = Int(Calendar.current.component(.weekdayOrdinal, from: Date()))
-        let index = schedge.fmSched[1].filter{ $0.time.contains(String(hour) + ":") }
-        if index.isEmpty{
+        
+        today = Int(Calendar.current.component(.weekday, from: Date())) - 1
+        
+        if (schedge.digSched.count >= 7){
+        let indexfiltered = schedge.fmSched[today].filter{ $0.time <= hour && ($0.time + ($0.len/2) - 1) >= hour }
+        
+        if indexfiltered.isEmpty{
             self.ShowName.text = "Off the Air"
             self.DJNames.text = "💤😴💤"
             
         }else {
-            self.ShowName.text=index[0].name
-            self.DJNames.text=index[0].dj
+            self.ShowName.text=indexfiltered[0].name
+            self.DJNames.text=indexfiltered[0].dj
+        }
         }
         
         updateMediaProperty(channel: RadioPlayer.sharedInstance.getChannel())
@@ -199,6 +242,7 @@ class ViewController: UIViewController {
     
     @IBAction func digitalIconPressed(_ sender: UIButton?) {
         flag = true
+        viewerSetting = "Dig"
         
         toggleAnimation(channel: "Digital")
         RadioPlayer.sharedInstance.changePlaying(channel: "Digital")
@@ -206,15 +250,18 @@ class ViewController: UIViewController {
         updateMediaProperty(channel: RadioPlayer.sharedInstance.getChannel())
         
         hour = Int(Calendar.current.component(.hour, from: Date()))
-        today = Int(Calendar.current.component(.weekdayOrdinal, from: Date()))
-        let index = schedge.digSched[today].filter{ $0.time.contains(String(hour) + ":") }
+        today = Int(Calendar.current.component(.weekday, from: Date())) - 1
+        if (schedge.digSched.count >= 7){
+        let index = schedge.digSched[today].filter{ $0.time <= hour && ($0.time + ($0.len/2) - 1 ) >= hour }
+        
         if index.isEmpty{
-            self.ShowName.text = "Off Air"
+            self.ShowName.text = "Off the Air"
             self.DJNames.text = "💤😴💤"
             
         }else {
             self.ShowName.text=index[0].name
             self.DJNames.text=index[0].dj
+        }
         }
     }
     
@@ -323,10 +370,28 @@ class ViewController: UIViewController {
         }
     }
     
+    func reachabilityChanged(note: NSNotification) {
     
+        let thisreachability = note.object as! Reachability
     
-    @IBAction func backToPlayer(segue: UIStoryboardSegue) {}
+        if thisreachability.isReachable {
+            
+        if thisreachability.isReachableViaWiFi {
+        print("Reachable via WiFi")
+        } else {
+        print("Reachable via Cellular")
+        }
+        } else {
+            let alert = UIAlertController(title: "No Internet Connection", message: "You are not connected to the internet, so you won't be able to stream WMUC. Check your connectivity settings and come back 😊", preferredStyle: .alert)
+            
+            alert.addAction(UIAlertAction(title: "OK", style: .default) { _ in
+            })
+            
+            self.present(alert, animated: true)
+        }
+    }
     
+     @IBAction func backToPlayer(segue: UIStoryboardSegue) {}
     
 //    dynamic private func AVPlayerStatusListener(notification:NSNotification) {
 //        let audioRouteChangeReason = notification.userInfo![AVAudioSessionRouteChangeReasonKey] as! UInt

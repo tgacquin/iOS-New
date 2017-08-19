@@ -8,34 +8,53 @@
 
 import UIKit
 
-var viewerSetting = "FM"
 
 
 class ScheduleTableViewController: UITableViewController {
     
 
     var shows = [Show]()
-    var day = 1;
+    var day = Int(Calendar.current.component(.weekdayOrdinal, from: Date()));
+    var isItToday = true;
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        loadShows()
         NotificationCenter.default.addObserver(self, selector: #selector(ScheduleTableViewController.updateChannel), name: NSNotification.Name(rawValue: ChannelNotificationKey), object: nil)
         
         NotificationCenter.default.addObserver(self, selector: #selector(ScheduleTableViewController.updateDay(_:)), name: NSNotification.Name(rawValue: DayNotificationKey), object: nil)
         
-        loadShows()
-        let hour = Int(Calendar.current.component(.hour, from: Date()))
-        let today = Int(Calendar.current.component(.weekdayOrdinal, from: Date()))
-        let index = schedge.fmSched[today].filter{ $0.time == (String(hour) + ":") }
-        if index.isEmpty {
-            
-        }else{
-            let indexPath = NSIndexPath(index: hour)
         
-            tableView.scrollToRow(at: indexPath as IndexPath, at: .top, animated: false)
+        let hour = Int(Calendar.current.component(.hour, from: Date()))
+        let today = Int(Calendar.current.component(.weekday, from: Date())) - 1
+        
+        if (schedge.digSched.count >= 7){
+        if (viewerSetting == "FM"){
+        if let realIndex = schedge.fmSched[today].index(where: { ($0.time <= hour) && (($0.time + ($0.len/2) - 1 ) >= hour) }) {
+            
+            let indexpAth = IndexPath(row: realIndex, section: 0)
+            
+            tableView.selectRow(at: indexpAth, animated: false, scrollPosition: .middle)
+            
+            print (tableView.cellForRow(at: indexpAth)!.isSelected)
+        
+            tableView.scrollToRow(at: indexpAth, at: .top, animated: false)
+            }
+        }else if(viewerSetting == "Dig"){
+            if let realIndex = schedge.digSched[today].index(where: { ($0.time <= hour) && (($0.time + ($0.len/2) - 1 ) >= hour) }) {
+                
+                let indexpAth = IndexPath(row: realIndex, section: 0)
+                
+                tableView.selectRow(at: indexpAth, animated: false, scrollPosition: .middle)
+                
+                print (tableView.cellForRow(at: indexpAth)!.isSelected)
+                
+                tableView.scrollToRow(at: indexpAth, at: .top, animated: false)
             }
         }
+        }
+        
+    }
 
 
     override func didReceiveMemoryWarning() {
@@ -62,13 +81,47 @@ class ScheduleTableViewController: UITableViewController {
         
         guard let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as? ShowTableViewCell  else {
             fatalError("The dequeued cell is not an instance of ShowTableViewCell.")
-        }        // Configure the cell...
+        }
+        // Configure the cell...
         
         let thisshow=shows[indexPath.row]
         
-        cell.showTime.text = String(thisshow.time)
+        if (thisshow.time > 12){
+            cell.showTime.text = String(thisshow.time - 12) + ":00 PM"
+        }else if (thisshow.time == 0) {
+            cell.showTime.text = "12:00 AM";
+        }else if (thisshow.time == 12) {
+            cell.showTime.text = "12:00 PM";
+        }else{
+            cell.showTime.text = String(thisshow.time) + ":00 AM"
+        }
+        
+        
         cell.showTitle.text = thisshow.name
         cell.showDj.text = thisshow.dj
+        
+        let endTime = (thisshow.time + (thisshow.len/2))
+        if (endTime > 12){
+            cell.endTime.text = String(endTime - 12) + ":00 PM"
+        }else if (endTime == 0) {
+            cell.endTime.text = "12:00 AM"
+        }else if(endTime == 12){
+            cell.endTime.text = "12:00 PM"
+        }else{
+            cell.endTime.text = String(endTime) + ":00 AM"
+        }
+
+        
+        let hour = Int(Calendar.current.component(.hour, from: Date()))
+        print("___________________")
+        print(thisshow.time);
+        print(thisshow.len);
+        if (isItToday && (thisshow.time <= hour) && ((thisshow.time + (thisshow.len/2) - 1 ) >= hour)){
+            print("SELECTED")
+            cell.backgroundColor = UIColor(colorLiteralRed: 0, green: 0, blue: 0, alpha: 0.2)
+        }else{
+            cell.backgroundColor = UIColor(colorLiteralRed: 1, green: 1, blue: 1, alpha: 1)
+        }
         
         return cell
     }
@@ -130,6 +183,12 @@ class ScheduleTableViewController: UITableViewController {
         
         if let dayVal = notification.userInfo?["dayVal"] as? Int {
             
+            if (dayVal == (Int(Calendar.current.component(.weekday, from: Date())) - 1)){
+                isItToday = true
+            } else {
+                isItToday = false
+            }
+        
             day=dayVal
             
             loadShows()
@@ -143,13 +202,13 @@ class ScheduleTableViewController: UITableViewController {
     private func loadShows() {
         
         shows = []
-        
+        if (schedge.digSched.count >= 7){
         if viewerSetting == "FM" {
             shows = schedge.fmSched[day]
         }else{
             shows = schedge.digSched[day]
         }
-        
+        }
         self.tableView.reloadData()
 
     }

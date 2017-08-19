@@ -13,30 +13,27 @@ class Show{
     
     var name: String
     var dj: String
-    var time: String
+    var time: Int
     var len: Int
     //MARK: Initialization
     
     init(s: [String]) {
         name = s[0]
         dj = s[1]
-        time = ""
+        time = 12
         len = 1
     }
 
     public func setTime(t: String, length: Int) {
-       // var semicolon = t.index(of: ":") ?? t.endIndex
-//        var hour = Int(t[..<semicolon])!
-//        if (t.contains("PM") && hour<12){
-//            hour+=12
-//        }
-//        var min = 0
-//        var mindex = t.index[after: semicolon]
-//        if (t[mindex] == 3){
-//            var min = 0.5
-//        }
-
-        time = t //hour+min
+        var semicolon = t.components(separatedBy: ":")
+        var hour = Int(semicolon[0])!
+        if (t.contains("PM") && hour<12){
+            hour+=12
+        }else if (t.contains("AM") && hour == 12){
+            hour=0
+        }
+        
+        time = hour //hour
         len = length
     }
     
@@ -45,7 +42,7 @@ class Show{
     }
     
     public func equals(o: Show) -> Bool {
-        if (name == o.name) {
+        if (name == o.name && time == o.time) {
             return true;
         } else {
             return false;

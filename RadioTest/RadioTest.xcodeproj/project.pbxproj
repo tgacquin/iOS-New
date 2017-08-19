@@ -22,6 +22,7 @@
 		B5C234C71E7A178F0069D9F4 /* Avenir-Heavy.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B5C234C31E7A178F0069D9F4 /* Avenir-Heavy.ttf */; };
 		B5C234C81E7A178F0069D9F4 /* Avenir-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B5C234C41E7A178F0069D9F4 /* Avenir-Light.ttf */; };
 		B5C234C91E7A178F0069D9F4 /* Avenir-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B5C234C51E7A178F0069D9F4 /* Avenir-Medium.ttf */; };
+		B5D1A8281F4616BA001441E1 /* Reachability.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5D1A8271F4616BA001441E1 /* Reachability.swift */; };
 		B5FAFB751F44A806002C8149 /* ScheduleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5FAFB741F44A806002C8149 /* ScheduleView.swift */; };
 /* End PBXBuildFile section */
 
@@ -45,6 +46,7 @@
 		B5C234C31E7A178F0069D9F4 /* Avenir-Heavy.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Avenir-Heavy.ttf"; sourceTree = "<group>"; };
 		B5C234C41E7A178F0069D9F4 /* Avenir-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Avenir-Light.ttf"; sourceTree = "<group>"; };
 		B5C234C51E7A178F0069D9F4 /* Avenir-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Avenir-Medium.ttf"; sourceTree = "<group>"; };
+		B5D1A8271F4616BA001441E1 /* Reachability.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Reachability.swift; sourceTree = "<group>"; };
 		B5FAFB741F44A806002C8149 /* ScheduleView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScheduleView.swift; sourceTree = "<group>"; };
 		E12F40232A4E080770BA1FAA /* Pods-RadioTest.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RadioTest.release.xcconfig"; path = "Pods/Target Support Files/Pods-RadioTest/Pods-RadioTest.release.xcconfig"; sourceTree = "<group>"; };
 		F84D8BFFF2CFC4732E320585 /* Pods_RadioTest.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RadioTest.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -90,6 +92,7 @@
 				B5FAFB741F44A806002C8149 /* ScheduleView.swift */,
 				B502C7CD1EBAC640003699BB /* ShowTableViewCell.swift */,
 				B502C7C71EBAA880003699BB /* ScheduleTableViewController.swift */,
+				B5D1A8271F4616BA001441E1 /* Reachability.swift */,
 				B502C7C91EBAB1D7003699BB /* Show.swift */,
 				B54CF5601F22E922009DE627 /* WMUCCrawler.swift */,
 				14076DE91DA2E0EF002C00B8 /* RadioPlayer.swift */,
@@ -258,6 +261,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B5D1A8281F4616BA001441E1 /* Reachability.swift in Sources */,
 				B54CF5611F22E922009DE627 /* WMUCCrawler.swift in Sources */,
 				14076DEA1DA2E0EF002C00B8 /* RadioPlayer.swift in Sources */,
 				B502C7C81EBAA880003699BB /* ScheduleTableViewController.swift in Sources */,

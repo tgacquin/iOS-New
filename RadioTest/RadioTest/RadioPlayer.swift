@@ -8,6 +8,7 @@
 
 import Foundation
 import AVFoundation
+import UIKit
 
 class RadioPlayer {
     
@@ -20,6 +21,18 @@ class RadioPlayer {
     
     private var currentChannel = "none"
     private var isPlaying = false
+    
+    init(){
+    
+        
+    NotificationCenter.default.addObserver(self, selector: #selector(self.reachabilityChanged),name: ReachabilityChangedNotification,object: reachability)
+    do{
+    try reachability.startNotifier()
+    }catch{
+    print("could not start reachability notifier")
+    }
+        
+    }
     
     func play() {
         if currentChannel == "FM" {
@@ -64,9 +77,30 @@ class RadioPlayer {
     }
     
     func refresh() {
+        pause()
         digital = AVPlayer(url: NSURL(string: "http://wmuc.umd.edu/wmuc2-high.m3u")! as URL)
         fm = AVPlayer(url: NSURL(string: "http://wmuc.umd.edu/wmuc-high.m3u")! as URL)
+        if(isPlaying==true){
+            play()
+        }
+    }
 
+    
+    @objc func reachabilityChanged(note: NSNotification) {
+        
+        let thisreachability = note.object as! Reachability
+        
+        if thisreachability.isReachable {
+            self.refresh()
+            print("reachable,reachability changed")
+            if thisreachability.isReachableViaWiFi {
+            } else {
+            }
+        } else {
+            print("not reachable!")
+            self.refresh()
+          
+        }
     }
 
 }

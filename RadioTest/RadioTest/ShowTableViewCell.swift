@@ -16,5 +16,6 @@ class ShowTableViewCell: UITableViewCell {
     
     @IBOutlet weak var showDj: UILabel!
     
+    @IBOutlet weak var endTime: UILabel!
     
 }

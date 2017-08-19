@@ -12,6 +12,10 @@ import UIKit
 import AVFoundation
 
 let schedge = WMUCCrawler()
+let reachability = Reachability()!
+
+
+var viewerSetting = "FM"
 
 
 @UIApplicationMain
@@ -46,7 +50,23 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     
     func  applicationDidFinishLaunching(_ application: UIApplication) {
-        schedge.fetchShows() //load and parse the schedule
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(self.reachabilityChanged),name: ReachabilityChangedNotification,object: reachability)
+        do{
+            try reachability.startNotifier()
+        }catch{
+            print("could not start reachability notifier")
+        }
+        
+        if (reachability.isReachable){
+            print("IT'S REACHABLE")
+            
+            if (schedge.digSched.count < 7){
+                schedge.fetchShows() //load and parse the schedule
+            }
+        }
+            print("_______________")
+            print(schedge.digSched.count)
     }
     
     
@@ -73,6 +93,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         if RadioPlayer.sharedInstance.digital.rate + RadioPlayer.sharedInstance.fm.rate == 0 {
             root.pauseRadio()
+            
+            
+            if (schedge.digSched.count < 7){
+                schedge.fetchShows() //load and parse the schedule
+            }
         }
         
     }
@@ -99,6 +124,29 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         completionHandler(false)
     }
+    
+    func reachabilityChanged(note: NSNotification) {
+        
+        let thisreachability = note.object as! Reachability
+        
+        if (thisreachability.isReachable) {
+            
+            if (schedge.digSched.count < 7){
+                
+                schedge.fetchShows()
+                print("REFETCHING SHOWS, RECONNECTED")
+            }
+            
+            if thisreachability.isReachableViaWiFi {
+                print("Reachable via WiFi")
+            } else {
+                print("Reachable via Cellular")
+            }
+        } else {
+            
+        }
+    }
+
     
 }
 

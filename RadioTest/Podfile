@@ -8,7 +8,7 @@ target 'RadioTest' do
     use_frameworks!
 
   # Pods for RadioTest
-    pod "SwiftSoup"
-
+    pod ‘SwiftSoup’
+    pod 'ReachabilitySwift', :branch => 'develop'
 
 end
