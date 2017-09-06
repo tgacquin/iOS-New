@@ -9,6 +9,5 @@ target 'RadioTest' do
 
   # Pods for RadioTest
     pod ‘SwiftSoup’
-    pod 'ReachabilitySwift', :branch => 'develop'
 
 end

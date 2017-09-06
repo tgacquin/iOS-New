@@ -12,7 +12,7 @@ import UIKit
 import AVFoundation
 
 let schedge = WMUCCrawler()
-let reachability = Reachability()!
+var reachability = Reachability()!
 
 
 var viewerSetting = "FM"
@@ -47,28 +47,28 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             }
         }
     }
-    
+
     
     func  applicationDidFinishLaunching(_ application: UIApplication) {
         
-        NotificationCenter.default.addObserver(self, selector: #selector(self.reachabilityChanged),name: ReachabilityChangedNotification,object: reachability)
+        
+        
+        
         do{
             try reachability.startNotifier()
         }catch{
             print("could not start reachability notifier")
         }
-        
-        if (reachability.isReachable){
-            print("IT'S REACHABLE")
-            
-            if (schedge.digSched.count < 7){
-                schedge.fetchShows() //load and parse the schedule
-            }
-        }
-            print("_______________")
-            print(schedge.digSched.count)
+
+        NotificationCenter.default.addObserver(self, selector: #selector(self.reachabilityChanged),name: ReachabilityChangedNotification,object: reachability)
     }
     
+    func application(_ application: UIApplication, willFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey : Any]? = nil) -> Bool {
+        
+        schedge.fetchShows()
+        
+        return true
+    }
     
     
     func applicationWillResignActive(_ application: UIApplication) {
@@ -86,6 +86,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
     
     func applicationDidBecomeActive(_ application: UIApplication) {
+       
         // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
         
         // Pause stream if other media is playing
@@ -95,7 +96,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             root.pauseRadio()
             
             
-            if (schedge.digSched.count < 7){
+                    }
+        if (reachability.isReachable){
+            print("IT'S REACHABLE")
+            
+            if ( schedge.digSched[0][0].name == "Unable to load Schedule"){
                 schedge.fetchShows() //load and parse the schedule
             }
         }
@@ -127,11 +132,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     func reachabilityChanged(note: NSNotification) {
         
+        
+
+        
+        print(" CHANGE")
         let thisreachability = note.object as! Reachability
+        
+        
         
         if (thisreachability.isReachable) {
             
-            if (schedge.digSched.count < 7){
+            if ( schedge.digSched[0][0].name == "Unable to load Schedule"){
                 
                 schedge.fetchShows()
                 print("REFETCHING SHOWS, RECONNECTED")
@@ -144,6 +155,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             }
         } else {
             
+        }
+        
+        reachability = Reachability()!
+        
+        do{
+            try reachability.startNotifier()
+        }catch{
+            print("could not start reachability notifier")
         }
     }
 

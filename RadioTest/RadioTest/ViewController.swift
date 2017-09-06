@@ -58,11 +58,7 @@ class ViewController: UIViewController {
         
         
         NotificationCenter.default.addObserver(self, selector: #selector(self.reachabilityChanged),name: ReachabilityChangedNotification,object: reachability)
-        do{
-            try reachability.startNotifier()
-        }catch{
-            print("could not start reachability notifier")
-        }
+        
         
         //MARK: UI Setup
         self.view.backgroundColor = UIColor.white
@@ -106,7 +102,7 @@ class ViewController: UIViewController {
         commandCenter.nextTrackCommand.addTarget(self, action: #selector(ViewController.nextChannel))
         commandCenter.previousTrackCommand.addTarget(self, action: #selector(ViewController.nextChannel))
         
-        MPNowPlayingInfoCenter.default().nowPlayingInfo = [MPMediaItemPropertyTitle : RadioPlayer.sharedInstance.getChannel(), MPMediaItemPropertyArtist : "WMUC", MPMediaItemPropertyArtwork : MPMediaItemArtwork(image: fmImage)]
+        MPNowPlayingInfoCenter.default().nowPlayingInfo = [MPMediaItemPropertyTitle : CurrentShow(channel: RadioPlayer.sharedInstance.getChannel())[0], MPMediaItemPropertyArtist : CurrentShow(channel: RadioPlayer.sharedInstance.getChannel())[1], MPMediaItemPropertyArtwork : MPMediaItemArtwork(image: fmImage)]
         
         // Swipe Gesture Recognition
         let swipeRight = UISwipeGestureRecognizer(target: self, action: #selector(self.onSwipe(_:)))
@@ -222,12 +218,12 @@ class ViewController: UIViewController {
         
         today = Int(Calendar.current.component(.weekday, from: Date())) - 1
         
-        if (schedge.digSched.count >= 7){
+        if (schedge.digSched[0][0].name != "Unable to load Schedule"){
         let indexfiltered = schedge.fmSched[today].filter{ $0.time <= hour && ($0.time + ($0.len/2) - 1) >= hour }
         
         if indexfiltered.isEmpty{
-            self.ShowName.text = "Off the Air"
-            self.DJNames.text = "💤😴💤"
+            self.ShowName.text = ""
+            self.DJNames.text = ""
             
         }else {
             self.ShowName.text=indexfiltered[0].name
@@ -255,9 +251,8 @@ class ViewController: UIViewController {
         let index = schedge.digSched[today].filter{ $0.time <= hour && ($0.time + ($0.len/2) - 1 ) >= hour }
         
         if index.isEmpty{
-            self.ShowName.text = "Off the Air"
-            self.DJNames.text = "💤😴💤"
-            
+            self.ShowName.text = " "
+            self.DJNames.text = " "
         }else {
             self.ShowName.text=index[0].name
             self.DJNames.text=index[0].dj
@@ -306,7 +301,7 @@ class ViewController: UIViewController {
     func updateMediaProperty(channel : String) {
         let artwork = (channel == "FM") ? MPMediaItemArtwork(image: fmImage) : MPMediaItemArtwork(image: digitalImage)
         
-        MPNowPlayingInfoCenter.default().nowPlayingInfo = [MPMediaItemPropertyTitle : channel, MPMediaItemPropertyArtist : "WMUC", MPMediaItemPropertyArtwork :artwork]
+        MPNowPlayingInfoCenter.default().nowPlayingInfo = [MPMediaItemPropertyTitle : CurrentShow(channel: RadioPlayer.sharedInstance.getChannel())[0], MPMediaItemPropertyArtist : CurrentShow(channel: RadioPlayer.sharedInstance.getChannel())[1], MPMediaItemPropertyArtwork : artwork]
     }
     
     
@@ -371,7 +366,9 @@ class ViewController: UIViewController {
     }
     
     func reachabilityChanged(note: NSNotification) {
-    
+        print(" CHANGE")
+        
+
         let thisreachability = note.object as! Reachability
     
         if thisreachability.isReachable {
@@ -389,9 +386,57 @@ class ViewController: UIViewController {
             
             self.present(alert, animated: true)
         }
+        do{
+            try reachability.startNotifier()
+        }catch{
+            print("could not start reachability notifier")
+        }
+
     }
     
-     @IBAction func backToPlayer(segue: UIStoryboardSegue) {}
+    @IBAction func backToPlayer(segue: UIStoryboardSegue) {}
+    
+    
+    func CurrentShow(channel: String) -> [String]{
+        
+        var show = ""
+        var dj = ""
+        
+        hour = Int(Calendar.current.component(.hour, from: Date()))
+        
+        today = Int(Calendar.current.component(.weekday, from: Date())) - 1
+        
+        if (schedge.digSched[0][0].name != "Unable to load Schedule"){
+            if channel == "FM" {
+                let indexfiltered = schedge.fmSched[today].filter{ $0.time <= hour && ($0.time + ($0.len/2) - 1) >= hour }
+                
+                if indexfiltered.isEmpty{
+                    show = ""
+                    dj = ""
+                    
+                }else {
+                    show = indexfiltered[0].name
+                    dj = indexfiltered[0].dj
+                }
+
+                
+            }else{
+                let indexfiltered = schedge.digSched[today].filter{ $0.time <= hour && ($0.time + ($0.len/2) - 1) >= hour }
+                
+                if indexfiltered.isEmpty{
+                    show = ""
+                    dj = ""
+                    
+                }else {
+                    show = indexfiltered[0].name
+                    dj = indexfiltered[0].dj
+                }
+        }
+            
+        }
+        return [show, dj]
+    }
+    
     
 //    dynamic private func AVPlayerStatusListener(notification:NSNotification) {
 //        let audioRouteChangeReason = notification.userInfo![AVAudioSessionRouteChangeReasonKey] as! UInt

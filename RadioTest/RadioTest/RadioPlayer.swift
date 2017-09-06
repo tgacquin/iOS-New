@@ -26,12 +26,7 @@ class RadioPlayer {
     
         
     NotificationCenter.default.addObserver(self, selector: #selector(self.reachabilityChanged),name: ReachabilityChangedNotification,object: reachability)
-    do{
-    try reachability.startNotifier()
-    }catch{
-    print("could not start reachability notifier")
-    }
-        
+    
     }
     
     func play() {
@@ -87,6 +82,7 @@ class RadioPlayer {
 
     
     @objc func reachabilityChanged(note: NSNotification) {
+        print(" CHANGE")
         
         let thisreachability = note.object as! Reachability
         

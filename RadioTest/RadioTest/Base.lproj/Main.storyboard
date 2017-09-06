@@ -4,6 +4,7 @@
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
         <capability name="Alignment constraints to the first baseline" minToolsVersion="6.0"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
@@ -65,10 +66,10 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0i9-NG-u12">
-                                <rect key="frame" x="157" y="570" width="60" height="57"/>
+                                <rect key="frame" x="154" y="570" width="66" height="64"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" secondItem="0i9-NG-u12" secondAttribute="height" multiplier="62:59" id="Ymi-Ok-qnl"/>
-                                    <constraint firstAttribute="width" constant="60" id="j3y-lZ-tce"/>
+                                    <constraint firstAttribute="width" secondItem="0i9-NG-u12" secondAttribute="height" multiplier="62:60" id="Ymi-Ok-qnl"/>
+                                    <constraint firstAttribute="width" constant="66" id="j3y-lZ-tce"/>
                                 </constraints>
                                 <state key="normal" image="Schedule"/>
                                 <connections>
@@ -187,10 +188,10 @@
                                 </connections>
                             </containerView>
                             <button opaque="NO" contentMode="scaleAspectFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xY7-vD-8DZ">
-                                <rect key="frame" x="168" y="587" width="38" height="60"/>
+                                <rect key="frame" x="170" y="587" width="34" height="60"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="60" id="5z9-f2-FiI"/>
-                                    <constraint firstAttribute="width" secondItem="xY7-vD-8DZ" secondAttribute="height" multiplier="19:30" id="dH6-4E-mor"/>
+                                    <constraint firstAttribute="width" secondItem="xY7-vD-8DZ" secondAttribute="height" multiplier="17:30" id="dH6-4E-mor"/>
                                 </constraints>
                                 <state key="normal" image="Back"/>
                                 <connections>
@@ -212,7 +213,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DkH-nJ-pqH">
-                                <rect key="frame" x="285" y="56.5" width="30" height="36"/>
+                                <rect key="frame" x="285" y="56" width="30" height="36"/>
                                 <fontDescription key="fontDescription" name="Avenir-Medium" family="Avenir" pointSize="17"/>
                                 <color key="tintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <state key="normal" title="Dig">
@@ -344,9 +345,9 @@
     </scenes>
     <resources>
         <image name="Back" width="69" height="123"/>
-        <image name="Digital" width="111" height="115"/>
-        <image name="FM" width="106" height="127"/>
-        <image name="Group" width="24" height="34"/>
+        <image name="Digital" width="333" height="345"/>
+        <image name="FM" width="318" height="381"/>
+        <image name="Group" width="216" height="306"/>
         <image name="Schedule" width="132" height="120"/>
         <image name="WMUC" width="468" height="90"/>
         <image name="redDot" width="95" height="95"/>
