@@ -1,15 +1,12 @@
 PODS:
-  - Alamofire (4.4.0)
-  - Kanna (2.1.1)
+  - SwiftSoup (1.4.2)
 
 DEPENDENCIES:
-  - Alamofire (~> 4.4)
-  - Kanna (~> 2.1.0)
+  - SwiftSoup
 
 SPEC CHECKSUMS:
-  Alamofire: dc44b1600b800eb63da6a19039a0083d62a6a62d
-  Kanna: 9b4b086c218703f2b94f5b21a466217dd2f9332e
+  SwiftSoup: 9638363718859b469c3d7877b2b6a640348bacb7
 
-PODFILE CHECKSUM: bafe9895177bab3e047d856c13bf28d4f81b6948
+PODFILE CHECKSUM: 3a770009cb6e3fd5b4d257a41b1fabeb7f530aaa
 
 COCOAPODS: 1.2.0

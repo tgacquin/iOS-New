@@ -4,17 +4,12 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
-		<key>Alamofire.xcscheme</key>
-		<dict>
-			<key>isShown</key>
-			<false/>
-		</dict>
-		<key>Kanna.xcscheme</key>
-		<dict>
-			<key>isShown</key>
-			<false/>
-		</dict>
 		<key>Pods-RadioTest.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>SwiftSoup.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
@@ -22,17 +17,12 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>2BA4E8E6DCBDDB2C14DAE25966838419</key>
+		<key>77156D3356F6DB42DAEB842FBD773547</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>4D10E4FF5A483B852B47CCA0B994E340</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>88E9EC28B8B46C3631E6B242B50F4442</key>
+		<key>F596A1316BF35A1275AF9EEE53AF1F9E</key>
 		<dict>
 			<key>primary</key>
 			<true/>
